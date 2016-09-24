@@ -1,7 +1,7 @@
-Minetest Game [minetest_game]
-=============================
-The main subgame for the Minetest engine
-========================================
+Landrush Game [landrush_game]
+=================================================
+The subgame used by the original Landrush Server
+=================================================
 
 To use this subgame with the Minetest engine, insert this repository as
 	/games/landrush_game
