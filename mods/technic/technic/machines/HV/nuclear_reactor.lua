@@ -190,8 +190,7 @@ end
 
 local function melt_down_reactor(pos)
 	minetest.log("action", "A reactor melted down at "..minetest.pos_to_string(pos))
-	--minetest.set_node(pos, {name="technic:corium_source"})
-	minetest.remove_node(pos)
+	minetest.set_node(pos, {name="technic:corium_source"})
 end
 
 
@@ -615,7 +614,6 @@ local function dmg_abm(pos, node)
 	end
 end
 
---[[
 if minetest.setting_getbool("enable_damage") then
 	minetest.register_abm({
 		nodenames = {"group:radioactive"},
@@ -625,7 +623,6 @@ if minetest.setting_getbool("enable_damage") then
 	})
 end
 
-]]
 -- Radioactive materials that can result from destroying a reactor
 local griefing = technic.config:get_bool("enable_corium_griefing")
 
@@ -686,7 +683,7 @@ minetest.register_node("technic:chernobylite_block", {
 	sounds = default.node_sound_stone_defaults(),
 	light_source = 2,
 })
---[[
+
 minetest.register_abm({
 	nodenames = {"group:water"},
 	neighbors = {"technic:corium_source"},
@@ -736,4 +733,3 @@ if griefing then
 		end,
 	})
 end
-]]
