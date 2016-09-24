@@ -1,0 +1,14 @@
+Nature mods pack.
+
+Version: 1.0.1
+
+Contents:
+* Nature - growing of some nature nodes.
+* Flowers - flowers growing, with API.
+* Vines - spawning climbable vines.
+* Bushes - bushes and berries. And delicious pies!
+* Irontrees - trees that give iron in the furnace. An old thing that was introduced when minetest had an iron bug making it very rare. It doesn't grow anything for now, kept just as legacy code.
+* Legacy - a mod to remove or convert nodes from the old versions
+* Junglegrass - grows junglegrass
+* Plants
+* Poisonivy

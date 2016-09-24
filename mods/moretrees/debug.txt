@@ -1,0 +1,154 @@
+
+
+-------------
+  Separator  
+-------------
+
+08:31:10: ACTION[main]: [MOD]inventory_plus -- loaded from /home/brandon/minetest/bin/../mods/minetest/inventory_plus
+[Skins] Done loading !
+[Habitat] Loaded!
+[Default] Loaded!
+Pipeworks loaded!
+[moreores] loaded.
+Registered default:fence_wood and signs:sign_post
+Registered homedecor:fence_brass and homedecor:fence_brass_with_sign
+Registered homedecor:fence_wrought_iron and homedecor:fence_wrought_iron_with_sign
+[HomeDecor] Loaded!
+[Plantlife Library] Loaded
+08:31:10: ERROR[main]: ========== ERROR FROM LUA ===========
+08:31:10: ERROR[main]: Failed to load and run script from 
+08:31:10: ERROR[main]: /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua:
+08:31:10: ERROR[main]: ...on/minetest/bin/../mods/minetest/moretrees/node_defs.lua:89: attempt to call global 'register_stair_slab_panel_micro' (a nil value)
+08:31:10: ERROR[main]: stack traceback:
+08:31:10: ERROR[main]: 	...on/minetest/bin/../mods/minetest/moretrees/node_defs.lua:89: in main chunk
+08:31:10: ERROR[main]: 	[C]: in function 'dofile'
+08:31:10: ERROR[main]: 	...brandon/minetest/bin/../mods/minetest/moretrees/init.lua:59: in main chunk
+08:31:10: ERROR[main]: =======END OF ERROR FROM LUA ========
+08:31:10: ERROR[main]: Server: Failed to load and run /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua
+08:31:11: ERROR[main]: ERROR: An unhandled exception occurred: ModError: Failed to load and run /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua
+
+In thread b7482700:
+/home/brandon/minetest/src/main.cpp:2080: int main(int, char**): Assertion '0' failed.
+Debug stacks:
+DEBUG STACK FOR THREAD b7482700:
+#0  int main(int, char**)
+(Leftover data: #1  Dedicated server branch)
+(Leftover data: #2  void ItemStack::deSerialize(std::istream&, IItemDefManager*))
+
+
+-------------
+  Separator  
+-------------
+
+08:34:14: ACTION[main]: [MOD]inventory_plus -- loaded from /home/brandon/minetest/bin/../mods/minetest/inventory_plus
+[Skins] Done loading !
+[Habitat] Loaded!
+[Default] Loaded!
+Pipeworks loaded!
+[moreores] loaded.
+Registered default:fence_wood and signs:sign_post
+Registered homedecor:fence_brass and homedecor:fence_brass_with_sign
+Registered homedecor:fence_wrought_iron and homedecor:fence_wrought_iron_with_sign
+[HomeDecor] Loaded!
+[Plantlife Library] Loaded
+08:34:14: ERROR[main]: ========== ERROR FROM LUA ===========
+08:34:14: ERROR[main]: Failed to load and run script from 
+08:34:14: ERROR[main]: /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua:
+08:34:14: ERROR[main]: ...on/minetest/bin/../mods/minetest/moretrees/node_defs.lua:89: attempt to index global 'stairsplus' (a nil value)
+08:34:14: ERROR[main]: stack traceback:
+08:34:14: ERROR[main]: 	...on/minetest/bin/../mods/minetest/moretrees/node_defs.lua:89: in main chunk
+08:34:14: ERROR[main]: 	[C]: in function 'dofile'
+08:34:14: ERROR[main]: 	...brandon/minetest/bin/../mods/minetest/moretrees/init.lua:59: in main chunk
+08:34:14: ERROR[main]: =======END OF ERROR FROM LUA ========
+08:34:14: ERROR[main]: Server: Failed to load and run /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua
+08:34:14: ERROR[main]: ERROR: An unhandled exception occurred: ModError: Failed to load and run /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua
+
+In thread b7533700:
+/home/brandon/minetest/src/main.cpp:2080: int main(int, char**): Assertion '0' failed.
+Debug stacks:
+DEBUG STACK FOR THREAD b7533700:
+#0  int main(int, char**)
+(Leftover data: #1  Dedicated server branch)
+(Leftover data: #2  void ItemStack::deSerialize(std::istream&, IItemDefManager*))
+
+
+-------------
+  Separator  
+-------------
+
+08:34:30: ACTION[main]: [MOD]inventory_plus -- loaded from /home/brandon/minetest/bin/../mods/minetest/inventory_plus
+[Skins] Done loading !
+[Habitat] Loaded!
+[Default] Loaded!
+Pipeworks loaded!
+[moreores] loaded.
+Registered default:fence_wood and signs:sign_post
+Registered homedecor:fence_brass and homedecor:fence_brass_with_sign
+Registered homedecor:fence_wrought_iron and homedecor:fence_wrought_iron_with_sign
+[HomeDecor] Loaded!
+[Plantlife Library] Loaded
+[Flowers_Plus] Loaded.
+[OK] Mesecons
+08:34:31: ERROR[main]: ========== ERROR FROM LUA ===========
+08:34:31: ERROR[main]: Failed to load and run script from 
+08:34:31: ERROR[main]: /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua:
+08:34:31: ERROR[main]: ...on/minetest/bin/../mods/minetest/moretrees/node_defs.lua:89: attempt to call field 'register_stair_slab_panel_micro' (a nil value)
+08:34:31: ERROR[main]: stack traceback:
+08:34:31: ERROR[main]: 	...on/minetest/bin/../mods/minetest/moretrees/node_defs.lua:89: in main chunk
+08:34:31: ERROR[main]: 	[C]: in function 'dofile'
+08:34:31: ERROR[main]: 	...brandon/minetest/bin/../mods/minetest/moretrees/init.lua:59: in main chunk
+08:34:31: ERROR[main]: =======END OF ERROR FROM LUA ========
+08:34:31: ERROR[main]: Server: Failed to load and run /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua
+08:34:31: ERROR[main]: ERROR: An unhandled exception occurred: ModError: Failed to load and run /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua
+
+In thread b746e700:
+/home/brandon/minetest/src/main.cpp:2080: int main(int, char**): Assertion '0' failed.
+Debug stacks:
+DEBUG STACK FOR THREAD b746e700:
+#0  int main(int, char**)
+(Leftover data: #1  Dedicated server branch)
+(Leftover data: #2  void ItemStack::deSerialize(std::istream&, IItemDefManager*))
+
+
+-------------
+  Separator  
+-------------
+
+08:36:13: ACTION[main]: [MOD]inventory_plus -- loaded from /home/brandon/minetest/bin/../mods/minetest/inventory_plus
+[Skins] Done loading !
+[Habitat] Loaded!
+[Default] Loaded!
+Pipeworks loaded!
+[moreores] loaded.
+Registered default:fence_wood and signs:sign_post
+Registered homedecor:fence_brass and homedecor:fence_brass_with_sign
+Registered homedecor:fence_wrought_iron and homedecor:fence_wrought_iron_with_sign
+[HomeDecor] Loaded!
+[Plantlife Library] Loaded
+[Flowers_Plus] Loaded.
+[OK] Mesecons
+08:36:14: ERROR[main]: ========== ERROR FROM LUA ===========
+08:36:14: ERROR[main]: Failed to load and run script from 
+08:36:14: ERROR[main]: /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua:
+08:36:14: ERROR[main]: /home/brandon/minetest/bin/../builtin/misc_register.lua:62: Name stairsplus:stair_moretrees does not follow naming conventions: "modname:" or ":" prefix required
+08:36:14: ERROR[main]: stack traceback:
+08:36:14: ERROR[main]: 	[C]: in function 'error'
+08:36:14: ERROR[main]: 	/home/brandon/minetest/bin/../builtin/misc_register.lua:62: in function 'check_modname_prefix'
+08:36:14: ERROR[main]: 	/home/brandon/minetest/bin/../builtin/misc_register.lua:98: in function 'register_item'
+08:36:14: ERROR[main]: 	/home/brandon/minetest/bin/../builtin/misc_register.lua:158: in function 'register_node'
+08:36:14: ERROR[main]: 	...randon/minetest/bin/../mods/minetest/stairsplus/init.lua:14: in function 'register_stair'
+08:36:14: ERROR[main]: 	...randon/minetest/bin/../mods/minetest/stairsplus/init.lua:1328: in function 'register_stair_and_slab_and_panel_and_micro'
+08:36:14: ERROR[main]: 	...on/minetest/bin/../mods/minetest/moretrees/node_defs.lua:89: in main chunk
+08:36:14: ERROR[main]: 	[C]: in function 'dofile'
+08:36:14: ERROR[main]: 	...brandon/minetest/bin/../mods/minetest/moretrees/init.lua:59: in main chunk
+08:36:14: ERROR[main]: =======END OF ERROR FROM LUA ========
+08:36:14: ERROR[main]: Server: Failed to load and run /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua
+08:36:14: ERROR[main]: ERROR: An unhandled exception occurred: ModError: Failed to load and run /home/brandon/minetest/bin/../mods/minetest/moretrees/init.lua
+
+In thread b74a8700:
+/home/brandon/minetest/src/main.cpp:2080: int main(int, char**): Assertion '0' failed.
+Debug stacks:
+DEBUG STACK FOR THREAD b74a8700:
+#0  int main(int, char**)
+(Leftover data: #1  Dedicated server branch)
+(Leftover data: #2  void ItemStack::deSerialize(std::istream&, IItemDefManager*))
