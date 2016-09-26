@@ -1,3 +1,12 @@
+-- for backward compatibility with 0.4.14 stable
+if minetest.get_mapgen_setting == nil then
+	minetest.get_mapgen_setting = function (param)
+		local p = minetest.get_mapgen_params()
+		p['mg_name'] = p['mgname']
+		return p[param]
+	end
+end
+
 -- mods/default/functions.lua
 
 --
