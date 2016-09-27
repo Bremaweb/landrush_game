@@ -1,6 +1,8 @@
+
 local mgname = ""
 
 --Identify the mapgen.
+--[[
 minetest.register_on_mapgen_init(function(MapgenParams)
 	if MapgenParams.mgname then
 		mgname = MapgenParams.mgname
@@ -15,6 +17,7 @@ minetest.register_on_mapgen_init(function(MapgenParams)
 		dofile(minetest.get_modpath("snow").."/mapgen_v6.lua")
 	end
 end)
+]]
 
 local pine_tree = {
 	axiom="TABff",

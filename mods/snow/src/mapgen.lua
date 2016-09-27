@@ -16,6 +16,7 @@ saplings grow into trees. --]]
 local mgname = ""
 
 --Identify the mapgen.
+--[[
 minetest.register_on_mapgen_init(function(MapgenParams)
 	if MapgenParams.mgname then
 		mgname = MapgenParams.mgname
@@ -30,7 +31,7 @@ minetest.register_on_mapgen_init(function(MapgenParams)
 		dofile(minetest.get_modpath("snow").."/src/mapgen_v6.lua")
 	end
 end)
-
+]]
 -- To complete the commenting-out add the *closing* comment under this line.
 
 
