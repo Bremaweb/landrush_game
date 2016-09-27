@@ -4,7 +4,7 @@ if minetest.get_modpath("default") then
 			local name = sender:get_player_name()
 			if landrush.can_interact(pos, name) then
 				local meta = minetest.get_meta(pos)
-				fields.text = fields.text or ""
+				if not fields.text then return end
 				print((name or "").." wrote \""..fields.text..
 					"\" to sign at "..minetest.pos_to_string(pos))
 				meta:set_string("text", fields.text)
