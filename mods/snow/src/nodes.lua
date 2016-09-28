@@ -8,7 +8,7 @@ minetest.register_node("snow:needles",{
 	tiles = {"snow_needles.png"},
 	waving = 1,
 	paramtype = "light",
-	groups = {snappy=3, leafdecay=5},
+	groups = {snappy=3, leafdecay=5, flammable=2, leaves = 1},
 	drop = {
 		max_items = 1,
 		items = {
