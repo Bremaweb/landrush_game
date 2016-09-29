@@ -87,6 +87,10 @@ vendor.can_dig = function(pos,player)
 end
 
 vendor.on_receive_fields = function(pos, formname, fields, sender)
+	-- print("Vendor at "..minetest.pos_to_string(pos).." got "..dump(fields))
+	if ( fields.number == nil or fields.limit == nil or fields.cost == nil or fields.shop == nil ) then -- invalid/aborted form
+		return
+	end
 	local node = minetest.env:get_node(pos)
 	local description = minetest.registered_nodes[node.name].description;
 	local meta = minetest.env:get_meta(pos)
