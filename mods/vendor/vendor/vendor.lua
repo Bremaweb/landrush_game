@@ -109,11 +109,6 @@ vendor.on_receive_fields = function(pos, formname, fields, sender)
 		shop = ""
 	end
 	
-	if ( number == nil or number < 1 or number > 99) then
-		minetest.chat_send_player(owner, "vendor: Invalid count.  You must enter a count between 1 and 99.")
-		vendor.disable(pos, "Misconfigured")
-		return
-	end
 	if ( cost == nil or cost < 0 ) then
 		minetest.chat_send_player(owner, "vendor: Invalid price.  You must enter a positive number for the price.")
 		vendor.disable(pos, "Misconfigured")
@@ -134,12 +129,24 @@ vendor.on_receive_fields = function(pos, formname, fields, sender)
 	end
 
 	local itemname = nil
-	for i=1,32 do
+	local maxcount = 0
+	for i=1,inv:get_size("main") do
 		local stack = inv:get_stack("main", i)
 		if stack ~= nil and not stack:is_empty() then
 			itemname = stack:get_name()
+			maxcount = stack:get_stack_max()
 			break
 		end
+	end
+	if ( itemname == nil or itemname == "" or maxcount == 0 ) then
+		minetest.chat_send_player(owner, "vendor: Invalid item.  You must insert tradable item in locked chest connected to shop.")
+		vendor.disable(pos, "Misconfigured")
+		return
+	end
+	if ( number == nil or number < 1 or number > maxcount ) then
+		minetest.chat_send_player(owner, "vendor: Invalid count.  You must enter a count between 1 and " .. maxcount .. ".")
+		vendor.disable(pos, "Misconfigured")
+		return
 	end
 
 	meta:set_string("itemtype", itemname)
@@ -422,6 +429,7 @@ vendor.neighboring_nodes = function(pos)
 	end
 	return trav		
 end
+
 vendor.find_connected_chest_inv = function(owner, pos, nodename, amount, removing) 
 	local nodes = vendor.neighboring_nodes(pos)
 
