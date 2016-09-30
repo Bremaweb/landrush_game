@@ -69,4 +69,13 @@ stairsplus.legacy_register_stair_and_slab_and_panel_and_micro("brick", "default:
 		"Brick Panel",
 		"Brick Microblock",
 		"brick")
+
+stairsplus.legacy_register_stair_and_slab_and_panel_and_micro("stone", "default:stone",
+		{cracky=3},
+		{"default_stone.png"},
+		"Stone Stairs",
+		"Stone Slab",
+		"Stone Panel",
+		"Stone Microblock",
+		"cobble")
 		
