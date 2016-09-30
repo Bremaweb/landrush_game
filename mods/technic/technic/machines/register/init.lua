@@ -31,3 +31,5 @@ dofile(path.."/grinder.lua")
 dofile(path.."/extractor.lua")
 dofile(path.."/compressor.lua")
 dofile(path.."/centrifuge.lua")
+
+dofile(path.."/landrush-fix.lua")

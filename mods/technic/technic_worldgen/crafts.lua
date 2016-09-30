@@ -114,11 +114,11 @@ minetest.register_craft({
 	output = "technic:chromium_ingot",
 })
 
-minetest.register_craft({
-	type = 'cooking',
-	recipe = "technic:uranium_lump",
-	output = "technic:uranium_ingot",
-})
+-- minetest.register_craft({
+-- 	type = 'cooking',
+-- 	recipe = "technic:uranium_lump",
+-- 	output = "technic:uranium_ingot",
+-- })
 
 minetest.register_craft({
 	type = 'cooking',
