@@ -16,12 +16,12 @@ local recipes = {
 	{ "technic:brass_dust 3",              "technic:copper_dust 2",       "technic:zinc_dust"     },
 }
 
-local function uranium_dust(p)
-	return "technic:uranium"..(p == 7 and "" or p).."_dust"
-end
-for p = 1, 34 do
-	table.insert(recipes, { uranium_dust(p).." 2", uranium_dust(p-1), uranium_dust(p+1) })
-end
+-- local function uranium_dust(p)
+-- 	return "technic:uranium"..(p == 7 and "" or p).."_dust"
+-- end
+-- for p = 1, 34 do
+-- 	table.insert(recipes, { uranium_dust(p).." 2", uranium_dust(p-1), uranium_dust(p+1) })
+-- end
 
 if minetest.get_modpath("bushes_classic") then
 	for _, berry in ipairs({ "blackberry", "blueberry", "gooseberry", "raspberry", "strawberry" }) do

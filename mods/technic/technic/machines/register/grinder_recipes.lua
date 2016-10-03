@@ -16,7 +16,7 @@ local recipes = {
 	{"default:gold_lump",       "technic:gold_dust 2"},
 	{"default:iron_lump",       "technic:wrought_iron_dust 2"},
 	{"technic:chromium_lump",   "technic:chromium_dust 2"},
-	{"technic:uranium_lump",    "technic:uranium_dust 2"},
+-- 	{"technic:uranium_lump",    "technic:uranium_dust 2"},
 	{"technic:zinc_lump",       "technic:zinc_dust 2"},
 	{"technic:lead_lump",       "technic:lead_dust 2"},
 	{"technic:sulfur_lump",     "technic:sulfur_dust 2"},
@@ -127,24 +127,24 @@ for p = 0, 35 do
 		recipe = dust,
 		output = ingot,
 	})
-	technic.register_grinder_recipe({ input = {ingot}, output = dust })
+-- 	technic.register_grinder_recipe({ input = {ingot}, output = dust })
 end
 
-local function uranium_dust(p)
-	return "technic:uranium"..(p == 7 and "" or p).."_dust"
-end
-for pa = 0, 34 do
-	for pb = pa+1, 35 do
-		local pc = (pa+pb)/2
-		if pc == math.floor(pc) then
-			minetest.register_craft({
-				type = "shapeless",
-				recipe = { uranium_dust(pa), uranium_dust(pb) },
-				output = uranium_dust(pc).." 2",
-			})
-		end
-	end
-end
+-- local function uranium_dust(p)
+-- 	return "technic:uranium"..(p == 7 and "" or p).."_dust"
+-- end
+-- for pa = 0, 34 do
+-- 	for pb = pa+1, 35 do
+-- 		local pc = (pa+pb)/2
+-- 		if pc == math.floor(pc) then
+-- 			minetest.register_craft({
+-- 				type = "shapeless",
+-- 				recipe = { uranium_dust(pa), uranium_dust(pb) },
+-- 				output = uranium_dust(pc).." 2",
+-- 			})
+-- 		end
+-- 	end
+-- end
 
 minetest.register_craft({
 	type = "fuel",
