@@ -112,6 +112,15 @@ else
 		groups = {choppy=1,cracky=1},
 		sounds =  default.node_sound_stone_defaults(),
 	})
+	-- craft definition moved here as defining streets alias apparently prevented it from registering.
+	minetest.register_craft({
+		output = 'steel:strut 4',
+		recipe = {
+			{'', 'default:steel_ingot', ''},
+			{'default:steel_ingot', '', 'default:steel_ingot'},
+			{'', 'default:steel_ingot', ''},
+		}
+	})
 	minetest.register_alias("streets:steel_support","steel:strut")
 end
 minetest.register_node("steel:grate_soft", {
@@ -247,18 +256,6 @@ minetest.register_craft({
 	output = "steel:grate_hard",
 	recipe = "steel:grate_soft",
 })
-
--- only register this craft if streets is not loaded
-if not minetest.registered_nodes["streets:steel_support"] then
-	minetest.register_craft({
-		output = 'steel:strut 5',
-		recipe = {
-			{'', 'default:steel_ingot', ''},
-			{'default:steel_ingot', '', 'default:steel_ingot'},
-			{'', 'default:steel_ingot', ''},
-		}
-	})
-end
 
 minetest.register_craft({
 	output = 'steel:roofing 6',
