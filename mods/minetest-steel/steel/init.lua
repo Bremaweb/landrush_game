@@ -309,14 +309,14 @@ minetest.register_craft({
 		{'steel:plate_hard'},
 	}
 })
---[[
+
 minetest.register_craft({
 	output = 'default:steel_ingot',
 	recipe = {
 		{'steel:scrap', 'steel:scrap'}	
 	}
 })
-]]
+
 
 
 
