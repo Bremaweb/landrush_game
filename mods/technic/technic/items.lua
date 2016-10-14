@@ -205,14 +205,14 @@ for p = 0, 35 do
 		sounds = default.node_sound_stone_defaults(),
 	});
 	if not ov then
-		minetest.register_craft({
-			output = block,
-			recipe = {
-				{ingot, ingot, ingot},
-				{ingot, ingot, ingot},
-				{ingot, ingot, ingot},
-			},
-		})
+-- 		minetest.register_craft({
+-- 			output = block,
+-- 			recipe = {
+-- 				{ingot, ingot, ingot},
+-- 				{ingot, ingot, ingot},
+-- 				{ingot, ingot, ingot},
+-- 			},
+-- 		})
 		minetest.register_craft({
 			output = ingot.." 9",
 			recipe = {{block}},
