@@ -18,7 +18,7 @@
 ---
 
 money.initial_amount = 2000
-money.currency_name = "cr"
+money.currency_name = "ULC"
 
 
 money.convert_items = {

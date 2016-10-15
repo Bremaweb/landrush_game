@@ -25,6 +25,11 @@ stat_file = minetest.get_worldpath() .. "/convert_stats"
 
 dofile(minetest.get_modpath("money2") .. "/lockedsign.lua")
 
+local function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
 money.set = function(name, value)
 	local output = io.open(minetest.get_worldpath() .. "/money_" .. name .. ".txt", "w")
 	output:write(value)
@@ -42,11 +47,7 @@ money.get = function(name)
 end
 
 money.has_credit = function(name)
-	local privs = minetest.get_player_privs(name)
-	if ( privs == nil or not privs["money"] ) then
-		return false
-	end
-	return true
+	return file_exists(minetest.get_worldpath() .. "/money_" .. name .. ".txt")
 end
 
 money.add = function(name, amount)
@@ -56,7 +57,7 @@ money.add = function(name, amount)
 
 	local credit = money.get(name)
 	if ( credit == nil ) then
-		return name .. " does not have a credit account."
+		return name .. " does not have an account."
 	end
 
 	money.set(name, credit + amount)
@@ -70,10 +71,10 @@ money.dec = function(name, amount)
 	
 	local credit = money.get(name)
 	if ( credit == nil ) then
-		return name .. " does not have a credit account."
+		return name .. " does not have an account."
 	end
 	if ( credit < amount ) then
-		return name .. " does not have enough credit."
+		return name .. " does not have enough ULC."
 	end
 	money.set(name, credit - amount)
 	return nil
@@ -87,10 +88,10 @@ money.transfer = function(from, to, amount)
 	amount = math.ceil(amount)
 	
 	if ( not money.has_credit(from) ) then
-		return from .. " does not have a credit account"
+		return from .. " does not have an account"
 	end
 	if ( not money.has_credit(to) ) then
-		return to .. " does not have a credit account"
+		return to .. " does not have an account"
 	end
 
 	if ( amount < 0 ) then
@@ -98,15 +99,15 @@ money.transfer = function(from, to, amount)
 	end
 	local from_credit = money.get(from)
 	if ( from_credit == nil or from_credit < amount ) then
-		return "not enough credit"
+		return "not enough "..money.currency_name
 	end
 	local to_credit = money.get(to)
 	if ( to_credit == nil ) then
-		return to .. " does not have a credit account."
+		return to .. " does not have an account."
 	end
 	money.set(from, from_credit - amount)
 	money.set(to, to_credit + amount)
-	minetest.log('action',"Credit transfer of "..tostring(amount).." from "..from.." to "..to)
+	minetest.log('action',money.currency_name .. " transfer of "..tostring(amount).." from "..from.." to "..to)
 	return nil
 end
 
@@ -117,16 +118,14 @@ minetest.register_on_joinplayer(function(player)
 	end
 end)
 
-minetest.register_privilege("money", "Can use /money [pay <player> <amount>] command")
 minetest.register_privilege("money_admin", {
 	description = "Can use /money [<player> | pay/set/add/dec <player> <amount>] command",
 	give_to_singleplayer = false,
 })
 
 minetest.register_chatcommand("money", {
-	privs = {money=true},
 	params = "[<player> | pay/set/add/dec <player> <amount>]",
-	description = "Operations with credit",
+	description = "Operations with ULC (Universal Landrush Credit)",
 	func = function(name,  param)
 		if param == "" then
 			minetest.chat_send_player(name, money.get(name) .. money.currency_name)
@@ -151,7 +150,7 @@ minetest.register_chatcommand("money", {
 				minetest.chat_send_player(name, "money: Player named \"" .. reciever .. "\" does not exist or does not have account.")
 				return true
 			elseif not tonumber(amount) then
-				minetest.chat_send_player(name, "money: amount .. " .. "is not a number.")
+				minetest.chat_send_player(name, "money: amount " .. tostring(amount) .. "is not a number.")
 				return true
 			elseif tonumber(amount) < 0 then
 				minetest.chat_send_player(name, "money: The amount must be greater than 0.")
@@ -192,7 +191,6 @@ minetest.register_chatcommand("money", {
 
 
 minetest.register_chatcommand("convertval",{
-	privs = {money=true},
 	params = "none",
 	description = "Shows the current value of convertable items",
 	func = function(name, param)
@@ -261,9 +259,8 @@ end
 convert_options = convert_options..">"
 
 minetest.register_chatcommand("convert",{
-	privs = {money=true},
 	params = convert_options,
-	description="Converts certain ores to credits",
+	description="Converts certain ores to ULD",
 	func = function(name, param)
 		-- check the parameters
 		if ( money.convert_items[param] ~= nil ) then			
