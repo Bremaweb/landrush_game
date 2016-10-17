@@ -194,7 +194,7 @@ ts_doors.register_door("default:bronzeblock" , "Bronze" , "default_bronze_block.
 ts_doors.register_door("default:copperblock" , "Copper" , "default_copper_block.png" , "default:copper_ingot" )
 ts_doors.register_door("default:diamondblock", "Diamond", "default_diamond_block.png", "default:diamond"      )
 ts_doors.register_door("default:goldblock"   , "Gold"   , "default_gold_block.png"   , "default:gold_ingot"   )
-ts_doors.register_door("default:steelblock"  , "Steel"  , minetest.registered_nodes["default:steelblock"].tiles[1], "default:steel_ingot")
+--ts_doors.register_door("default:steelblock"  , "Steel"  , minetest.registered_nodes["default:steelblock"].tiles[1], "default:steel_ingot")
 
 if minetest.get_modpath("moreores") then
 	ts_doors.register_door("moreores:mithril_block", "Mithril", "moreores_mithril_block.png", "moreores:mithril_ingot")
