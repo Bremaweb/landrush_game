@@ -228,8 +228,8 @@ minetest.register_craftitem("steel:scrap", {
 minetest.register_craft({
 	output = 'steel:plate_soft 2',
 	recipe = {
-		{'default:steel_ingot', 'default:steel_ingot'},
-		{'default:steel_ingot', 'default:steel_ingot'},
+		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'},
+		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'},
 	}
 })
 
