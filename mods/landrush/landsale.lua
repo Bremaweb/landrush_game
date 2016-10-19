@@ -28,7 +28,7 @@ minetest.register_node("landrush:sale_block",{
 			local meta = minetest.get_meta(pos)
 			local price = meta:get_int("price")
 			
-			if ( price == 0 ) then
+			if ( not ( price > 0 ) ) then
 				minetest.chat_send_player(name,'Land Sale setup not complete')
 				return
 			end
@@ -36,7 +36,7 @@ minetest.register_node("landrush:sale_block",{
 			if ( money.get(name) >= price ) then
 				local transfer = money.transfer(name,owner,price)
 				if ( transfer == nil ) then
-					chunk = landrush.get_chunk(pos)
+					local chunk = landrush.get_chunk(pos)
 					landrush.claims[chunk] = {owner=name,shared={},claimtype='landclaim'}
 					landrush.save_claims()
 					minetest.chat_send_player(landrush.claims[chunk].owner, "You now own this claim.")
@@ -59,11 +59,13 @@ minetest.register_node("landrush:sale_block",{
 		--process formspec
 		local name = sender:get_player_name()
 		local owner = landrush.get_owner(pos)
+		if ( not fields.price or not fields.note ) then return end
 		if ( name == owner ) then
 			local meta = minetest.get_meta(pos)
-			meta:set_int("price",fields.price)
+			local price=math.floor(tonumber(fields.price) or 0)
+			meta:set_int("price", price)
 			meta:set_string("note",fields.note)
-			meta:set_string("infotext","For sale by "..owner.." for " .. tostring(fields.price) .." "..tostring(fields.note))
+			meta:set_string("infotext","For sale by "..owner.." for " .. tostring(price) .." "..tostring(fields.note))
 			meta:set_string("formspec",landrush.sell_formspec(pos,sender))
 		else
 			minetest.chat_send_player(name,"You can't configure this sale!")
