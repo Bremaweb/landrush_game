@@ -479,7 +479,7 @@ minetest.register_alias("farming_plus:rubber_leaves", "moretrees:rubber_tree_lea
 minetest.register_alias("farming_plus:rubber_sapling", "moretrees:rubber_tree_sapling")
 minetest.register_alias("technic:rubber_tree_sapling", "moretrees:rubber_tree_sapling")
 
-minetest.register_alias("default:junglesapling","moretrees:jungletree_sapling")
+--minetest.register_alias("default:junglesapling","moretrees:jungletree_sapling")
 minetest.register_alias("moretrees:jungletree_trunk_sideways", "moreblocks:horizontal_jungle_tree")
 
 minetest.register_alias("jungletree:leaves_green", "moretrees:jungletree_leaves_green")

@@ -117,10 +117,6 @@ for i in ipairs(flowers_list) do
 		output = "homedecor:potted_"..flower,
 		recipe = { craftwith, "homedecor:flower_pot_small" }
 	})
-
-	minetest.register_alias("flowers:flower_"..flower.."_pot", "homedecor:potted_"..flower)
-	minetest.register_alias("flowers:potted_"..flower, "homedecor:potted_"..flower)
-	minetest.register_alias("flowers:flower_pot", "homedecor:flower_pot_small")
 end
 
 homedecor.register("pole_brass", {
