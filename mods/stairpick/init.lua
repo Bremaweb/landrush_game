@@ -54,7 +54,7 @@ function stairpick.use_pick(itemstack, player, pointed_thing)
 			return
 		end
 		
-		node = minetest.env:get_node(pointed_thing.under)
+		node = minetest.get_node(pointed_thing.under)
 		local modname, nodename = string.match(node.name, "([^ ]+):([^ ]+)")
 		
 		if ( nodename == nil ) then
@@ -69,7 +69,7 @@ function stairpick.use_pick(itemstack, player, pointed_thing)
 		end
 		if ( stairmod ~= nil ) then
 			-- stairs exist for this node 
-			minetest.env:remove_node(pointed_thing.under)
+			minetest.remove_node(pointed_thing.under)
 			local fakestack = ItemStack(minetest.registered_nodes[stairmod..":stair_"..nodename])
 			minetest.item_place(fakestack, player, pointed_thing)
 			if ( itemstack:get_name() == "stairpick:stairpick_steel" ) then

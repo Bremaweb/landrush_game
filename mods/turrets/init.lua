@@ -35,7 +35,7 @@ minetest.register_abm({
 						local los, blocking_pos = minetest.line_of_sight({x=obj_p.x,y=(obj_p.y+1),z=obj_p.z}, pos, 1)
 						if ( blocking_pos.x == pos.x and blocking_pos.y == pos.y and blocking_pos.z == pos.z ) then
 							local calc = {x=obj_p.x - pos.x,y=obj_p.y+1 - pos.y,z=obj_p.z - pos.z}	
-							local bullet=minetest.env:add_entity({x=pos.x,y=pos.y,z=pos.z}, "turrets:arrow_entity")
+							local bullet=minetest.add_entity({x=pos.x,y=pos.y,z=pos.z}, "turrets:arrow_entity")
 							bullet:setvelocity({x=calc.x * ARROW_VELOCITY,y=calc.y * ARROW_VELOCITY,z=calc.z * ARROW_VELOCITY})
 							music_handle=minetest.sound_play("turrets_laser",
 							{pos = pos, gain = 0.6, max_hear_distance = 14,})
@@ -61,7 +61,7 @@ THROWING_ARROW_ENTITY={
 THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
 	local pos = self.object:getpos()
-	local node = minetest.env:get_node(pos)
+	local node = minetest.get_node(pos)
 	if self.timer > 2 then
 		self.object:remove()
 	end
@@ -79,7 +79,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	--Become item when hitting a node
 	if self.lastpos.x~=nil then --If there is no lastpos for some reason
 		if node.name ~= "air" and node.name ~= "turrets:turret" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow')
+			minetest.add_item(self.lastpos, 'throwing:arrow')
 			self.object:remove()
 		end
 	end

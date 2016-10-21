@@ -68,13 +68,13 @@ minetest.register_node("landrush:shared_chest", {
 		
 		tube = {
 				insert_object = function(pos, node, stack, direction)
-					local meta = minetest.env:get_meta(pos)
+					local meta = minetest.get_meta(pos)
 					local inventory = meta:get_inventory()
 					return inventory:add_item("main",stack)
 				end,
 				
 				can_insert = function(pos, node, stack, direction)
-					local meta=minetest.env:get_meta(pos)
+					local meta=minetest.get_meta(pos)
 					local inventory = meta:get_inventory()
 					return inventory:room_for_item("main",stack)
 				end,

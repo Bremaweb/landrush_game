@@ -84,7 +84,7 @@ minetest.register_craft({
 })
 
 function landrush.sell_formspec(pos,player)
-	local meta = minetest.env:get_meta(pos)	
+	local meta = minetest.get_meta(pos)	
 	local price = meta:get_int("price")
 	local note = meta:get_string("note")
 	

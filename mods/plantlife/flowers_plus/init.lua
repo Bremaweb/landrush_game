@@ -90,7 +90,7 @@ for i in ipairs(lilies_list) do
 			local nodename = "default:cobble" -- if this block appears, something went....wrong :-)
 
 				if not keys["sneak"] then
-					local node = minetest.env:get_node(pt.under)
+					local node = minetest.get_node(pt.under)
 					local waterlily = math.random(1,8)
 					if waterlily == 1 then
 						nodename = "flowers:waterlily"
@@ -190,7 +190,7 @@ for i in ipairs(algae_list) do
 			local nodename = "default:cobble" -- :D
 
 				if not keys["sneak"] then
-					--local node = minetest.env:get_node(pt.under)
+					--local node = minetest.get_node(pt.under)
 					local seaweed = math.random(1,4)
 					if seaweed == 1 then
 						nodename = "flowers:seaweed"

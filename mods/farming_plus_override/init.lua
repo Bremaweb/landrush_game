@@ -77,12 +77,12 @@ minetest.register_node(":farming:scarecrow", {
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2},
 	
 	after_place_node = function(pos, placer)
-		local node = minetest.env:get_node(pos)
+		local node = minetest.get_node(pos)
 		local param2 = node.param2
 		pos.y = pos.y+1
-		if minetest.env:get_node(pos).name ~= "air" then
+		if minetest.get_node(pos).name ~= "air" then
 			pos.y = pos.y-1
-			minetest.env:remove_node(pos)
+			minetest.remove_node(pos)
 			minetest.after(0.1, function(placer)
 				local inv = placer:get_inventory()
 				--local index = placer:get_wield_index()
@@ -90,16 +90,16 @@ minetest.register_node(":farming:scarecrow", {
 			end, placer)
 			return
 		end
-		minetest.env:set_node(pos, node)
+		minetest.set_node(pos, node)
 		pos.y = pos.y-1
 		node.name = "farming:scarecrow_bottom"
-		minetest.env:set_node(pos, node)
+		minetest.set_node(pos, node)
 	end,
 	
 	after_destruct = function(pos, oldnode)
 		pos.y = pos.y-1
-		if minetest.env:get_node(pos).name == "farming:scarecrow_bottom" then
-			minetest.env:remove_node(pos)
+		if minetest.get_node(pos).name == "farming:scarecrow_bottom" then
+			minetest.remove_node(pos)
 		end
 	end
 })
@@ -125,12 +125,12 @@ minetest.register_node(":farming:scarecrow_light", {
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2},
 	
 	after_place_node = function(pos, placer)
-		local node = minetest.env:get_node(pos)
+		local node = minetest.get_node(pos)
 		local param2 = node.param2
 		pos.y = pos.y+1
-		if minetest.env:get_node(pos).name ~= "air" then
+		if minetest.get_node(pos).name ~= "air" then
 			pos.y = pos.y-1
-			minetest.env:remove_node(pos)
+			minetest.remove_node(pos)
 			minetest.after(0.1, function(placer)
 				local inv = placer:get_inventory()
 				-- local index = placer:get_wield_index()
@@ -138,16 +138,16 @@ minetest.register_node(":farming:scarecrow_light", {
 			end, placer)
 			return
 		end
-		minetest.env:set_node(pos, node)
+		minetest.set_node(pos, node)
 		pos.y = pos.y-1
 		node.name = "farming:scarecrow_bottom"
-		minetest.env:set_node(pos, node)
+		minetest.set_node(pos, node)
 	end,
 	
 	after_destruct = function(pos, oldnode)
 		pos.y = pos.y-1
-		if minetest.env:get_node(pos).name == "farming:scarecrow_bottom" then
-			minetest.env:remove_node(pos)
+		if minetest.get_node(pos).name == "farming:scarecrow_bottom" then
+			minetest.remove_node(pos)
 		end
 	end
 })

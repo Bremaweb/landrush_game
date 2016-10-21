@@ -44,7 +44,7 @@ minetest.register_abm({
 	    y = pos.y - 1,
 	    z = pos.z,
 	}
-	local under_name = minetest.env:get_node(under).name
+	local under_name = minetest.get_node(under).name
 
 	if under_name ~= "vines:vine"
 		and under_name ~= "default:dirt"
@@ -52,7 +52,7 @@ minetest.register_abm({
 	    nature:grow_node(pos, "vines:vine_rotten")
 	else
 
-	    if(minetest.env:get_node_light(pos, nil) < 4) then
+	    if(minetest.get_node_light(pos, nil) < 4) then
 		return
 	    end
  
@@ -62,7 +62,7 @@ minetest.register_abm({
 		z = pos.z,
 	    }
 
-	    if minetest.env:get_node(above).name == "air" then
+	    if minetest.get_node(above).name == "air" then
 		nature:grow_node(above, "vines:vine")
 	    end
 	end
@@ -75,13 +75,13 @@ minetest.register_abm({
     chance = VINE_ROT_CHANCE,
 
     action = function(pos, node, _, _)
-	minetest.env:remove_node(pos)
+	minetest.remove_node(pos)
 	local under = {
 	    x = pos.x,
 	    y = pos.y - 1,
 	    z = pos.z,
 	}
-	local under_name = minetest.env:get_node(under).name
+	local under_name = minetest.get_node(under).name
 
 	if under_name == "vines:vine"
 		or under_name == "default:dirt"

@@ -4,7 +4,7 @@ minetest.register_chatcommand("landowner", {
 	description = "tells the owner of the current map chunk",
 	privs = {interact=true},
 	func = function(name, param)
-		local player = minetest.env:get_player_by_name(name)
+		local player = minetest.get_player_by_name(name)
 		local pos = player:getpos()
 		local owner = landrush.get_owner(pos)
 		if owner then
@@ -37,7 +37,7 @@ minetest.register_chatcommand("unclaim", {
 	description = "unclaims the current map chunk",
 	privs = {interact=true},
 	func = function(name, param)
-		local player = minetest.env:get_player_by_name(name)
+		local player = minetest.get_player_by_name(name)
 		local pos = player:getpos()
 		local owner = landrush.get_owner(pos)
 		local inv = player:get_inventory()
@@ -61,12 +61,12 @@ minetest.register_chatcommand("sharearea", {
 	description = "shares the current map chunk with <name>",
 	privs = {interact=true},
 	func = function(name, param)
-		local player = minetest.env:get_player_by_name(name)
+		local player = minetest.get_player_by_name(name)
 		local pos = player:getpos()
 		local owner = landrush.get_owner(pos)
 		if owner then
 			if ( owner == name and name ~= param ) or minetest.check_player_privs(name, {landrush=true}) then
-				if minetest.env:get_player_by_name(param) or param=="*all" then
+				if minetest.get_player_by_name(param) or param=="*all" then
 					landrush.claims[landrush.get_chunk(pos)].shared[param] = param
 					landrush.save_claims()
 					minetest.chat_send_player(name, param.." may now edit this area.")
@@ -88,7 +88,7 @@ minetest.register_chatcommand("unsharearea", {
 	description = "unshares the current map chunk with <name>",
 	privs = {interact=true},
 	func = function(name, param)
-		local player = minetest.env:get_player_by_name(name)
+		local player = minetest.get_player_by_name(name)
 		local pos = player:getpos()
 		local owner = landrush.get_owner(pos)
 		if owner then
@@ -115,7 +115,7 @@ minetest.register_chatcommand("mayedit", {
 	description = "lists the people who may edit the current map chunk",
 	privs = {interact=true},
 	func = function(name, param)
-		local player = minetest.env:get_player_by_name(name)
+		local player = minetest.get_player_by_name(name)
 		local pos = player:getpos()
 		local mayedit = landrush.get_owner(pos)
 		if mayedit then
@@ -135,11 +135,11 @@ minetest.register_chatcommand("showarea", {
 	description = "highlights the boundaries of the current protected area",
 	privs = {interact=true},
 	func = function(name, param)
-		local player = minetest.env:get_player_by_name(name)
+		local player = minetest.get_player_by_name(name)
 		local pos = player:getpos()		
 				local entpos = landrush.get_chunk_center(pos)
 				entpos.y = (pos.y-1)
-				minetest.env:add_entity(entpos, "landrush:showarea")	
+				minetest.add_entity(entpos, "landrush:showarea")	
 	end,
 })
 
@@ -149,7 +149,7 @@ minetest.register_chatcommand("shareall", {
     privs = {interact=true},
     func = function(name, param)
         
-        if minetest.env:get_player_by_name(param) then
+        if minetest.get_player_by_name(param) then
             local qdone = 0
             for k,v in pairs(landrush.claims) do
                 if landrush.claims[k].owner == name then

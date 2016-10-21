@@ -419,14 +419,14 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			local slabnode = nil
 			local p1 = pointed_thing.above
 			p1 = {x = p1.x, y = p1.y - 1, z = p1.z}
-			local n1 = minetest.env:get_node(p1)
+			local n1 = minetest.get_node(p1)
 			if n1.name == "stairsplus:slab_" .. subname then
 				slabpos = p1
 				slabnode = n1
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack(recipeitem)
 				pointed_thing.above = slabpos
@@ -436,7 +436,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -447,7 +447,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_three_quarter")
 				pointed_thing.above = slabpos
@@ -457,7 +457,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -516,14 +516,14 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			local slabnode = nil
 			local p1 = pointed_thing.above
 			p1 = {x = p1.x, y = p1.y + 1, z = p1.z}
-			local n1 = minetest.env:get_node(p1)
+			local n1 = minetest.get_node(p1)
 			if n1.name == "stairsplus:slab_" .. subname .. "_inverted" then
 				slabpos = p1
 				slabnode = n1
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack(recipeitem)
 				pointed_thing.above = slabpos
@@ -533,7 +533,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -544,7 +544,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_three_quarter_inverted")
 				pointed_thing.above = slabpos
@@ -554,7 +554,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -614,14 +614,14 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			local slabnode = nil
 			local p1 = pointed_thing.above
 			p1 = {x = p1.x, y = p1.y - 1, z = p1.z}
-			local n1 = minetest.env:get_node(p1)
+			local n1 = minetest.get_node(p1)
 			if n1.name == "stairsplus:slab_" .. subname .. "_quarter" then
 				slabpos = p1
 				slabnode = n1
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack("stairsplus:slab_" .. subname)
 				pointed_thing.above = slabpos
@@ -631,7 +631,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -642,7 +642,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_three_quarter")
 				pointed_thing.above = slabpos
@@ -652,7 +652,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -663,7 +663,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack(recipeitem)
 				pointed_thing.above = slabpos
@@ -673,7 +673,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -712,14 +712,14 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			local slabnode = nil
 			local p1 = pointed_thing.above
 			p1 = {x = p1.x, y = p1.y + 1, z = p1.z}
-			local n1 = minetest.env:get_node(p1)
+			local n1 = minetest.get_node(p1)
 			if n1.name == "stairsplus:slab_" .. subname .. "_quarter_inverted" then
 				slabpos = p1
 				slabnode = n1
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_inverted")
 				pointed_thing.above = slabpos
@@ -729,7 +729,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -740,7 +740,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_three_quarter_inverted")
 				pointed_thing.above = slabpos
@@ -750,7 +750,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end
@@ -761,7 +761,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 			end
 			if slabpos then
 				-- Remove the slab at slabpos
-				minetest.env:remove_node(slabpos)
+				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
 				local fakestack = ItemStack(recipeitem)
 				pointed_thing.above = slabpos
@@ -771,7 +771,7 @@ function stairsplus.legacy_register_slab(subname, recipeitem, groups, images, de
 					itemstack:take_item(1)
 				-- Else put old node back
 				else
-					minetest.env:set_node(slabpos, slabnode)
+					minetest.set_node(slabpos, slabnode)
 				end
 				return itemstack
 			end

@@ -49,14 +49,14 @@ end
 	interval = 1.0,
 	chance = 1.0,
 	action = function(pos, node, active_object_count, active_object_count_wider)
-		if table_containts(GROUND_LIST, minetest.env:get_node({x = pos.x, y = pos.y-1, z = pos.z}).name) then return end
+		if table_containts(GROUND_LIST, minetest.get_node({x = pos.x, y = pos.y-1, z = pos.z}).name) then return end
 		for i = -1, 1 do
 			for k = -1, 1 do
-				if minetest.env:get_node({x = pos.x+i, y = pos.y-1, z = pos.z+k}).name == 'default:tree' then return end
+				if minetest.get_node({x = pos.x+i, y = pos.y-1, z = pos.z+k}).name == 'default:tree' then return end
 			end
 		end
-		minetest.env:add_item(pos, "default:tree")
-		minetest.env:add_node(pos, {name="air"})
+		minetest.add_item(pos, "default:tree")
+		minetest.add_node(pos, {name="air"})
 	end,
 })]]
 --[[
@@ -68,8 +68,8 @@ minetest.register_abm({
 		for i=0, 3 do
 			for j=0,3 do
 				for k=0,3 do
-					if minetest.env:get_node({x=pos.x+i-1, y=pos.y+j-1, z=pos.z+k-1}).name == "air" then
-						minetest.env:add_node({x=pos.x+i-1, y=pos.y+j-1, z=pos.z+k-1}, {name="default:apple"})
+					if minetest.get_node({x=pos.x+i-1, y=pos.y+j-1, z=pos.z+k-1}).name == "air" then
+						minetest.add_node({x=pos.x+i-1, y=pos.y+j-1, z=pos.z+k-1}, {name="default:apple"})
 						return
 					end
 				end

@@ -26,7 +26,7 @@ bones.replaceable_node_types = {
 }
 
 bones.allow_inventory_take = function(pos, listname, index, stack, player)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	if not bones.privilege(meta, player) then
 		minetest.log("action", player:get_player_name()..
 				" tried to access bones belonging to "..
@@ -62,7 +62,7 @@ bones.privilege=function(meta, player)
 end
 
 bones.action=function(pos, node, active_object_count, active_object_count_wider)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	local fresh = meta:get_int("fresh") or 0
 	if fresh > 0 then
 		local bonetime = meta:get_float("bonetime") or 0
@@ -76,8 +76,8 @@ end
 
 bones.create = function(player, pos) 
 	local name = player:get_player_name()
-	minetest.env:set_node(pos, {name="bones:bones", param1=0, param2=0})
-	local meta = minetest.env:get_meta(pos)
+	minetest.set_node(pos, {name="bones:bones", param1=0, param2=0})
+	local meta = minetest.get_meta(pos)
 	meta:set_string("formspec",
 			"invsize[8,9;]"..
 			"list[current_name;main;0,0;8,4;]"..
@@ -88,7 +88,7 @@ bones.create = function(player, pos)
 	meta:set_int("fresh", 1)
 
 	-- test to see if node was created
-	local node = minetest.env:get_node_or_nil(pos)
+	local node = minetest.get_node_or_nil(pos)
 	if node == nil or node.name ~= "bones:bones" then
 		minetest.log("error", 'Bones:  Failed to create bones node for '..name)
 		return false
@@ -115,7 +115,7 @@ bones.create = function(player, pos)
 		if stack ~= nil and not stack:is_empty() then
 			local leftover = bones_inv:add_item("main", stack)
 			if leftover ~= nil and not leftover:is_empty() then
-				minetest.env:add_item({
+				minetest.add_item({
 					x=pos.x, 
 					y=pos.y + 1.1, 
 					z=pos.z}, leftover)
@@ -140,7 +140,7 @@ bones.on_punch = function(pos, node, player)
 		return
 	end
 	
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 
 	local fresh = meta:get_int("fresh") or 0
 	if fresh == 0  then
@@ -152,7 +152,7 @@ bones.on_punch = function(pos, node, player)
 		return
 	end
 
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	local bones_inv = meta:get_inventory()
 	if ( bones_inv == nil ) then
 		return
@@ -179,7 +179,7 @@ bones.on_punch = function(pos, node, player)
 	minetest.log("action", name.." unloaded his fresh bones at "..minetest.pos_to_string(pos))
 	
 	-- destroy the bone item
-	minetest.env:set_node(pos, {name="air", param1=0, param2=0})
+	minetest.set_node(pos, {name="air", param1=0, param2=0})
 	minetest.log("action","Destroying bones "..minetest.pos_to_string(pos))
 end
 
@@ -192,15 +192,15 @@ bones.settle_bones = function(pos)
 	repeat
 		pos = nextpos
 		nextpos = {x=pos.x, y=pos.y-1, z=pos.z}
-		node = minetest.env:get_node_or_nil(nextpos)
+		node = minetest.get_node_or_nil(nextpos)
 	until node == nil or not bones.settle_type(node.name) 
 
-	node = minetest.env:get_node_or_nil(pos)
+	node = minetest.get_node_or_nil(pos)
 
 	-- if the player is inside rock or something
 	if node == nil or not bones.settle_type(node.name) then
 		-- find nearby empty node
-		pos = minetest.env:find_node_near(pos, 3, bones.replaceable_node_types)
+		pos = minetest.find_node_near(pos, 3, bones.replaceable_node_types)
 	end
 
 	-- if nothing nearby is empty
@@ -259,10 +259,10 @@ minetest.register_abm({
         interval = 120,
         chance = 1,
         action = function(pos, node, active_object_count, active_object_count_wider)
-	  local meta = minetest.env:get_meta(pos)
+	  local meta = minetest.get_meta(pos)
 	  local bonetime = meta:get_float("bonetime") or 0
 		if worldtime_get() - bonetime >  bones.destroy_after then
-			minetest.env:set_node(pos, {name="air", param1=0, param2=0})
+			minetest.set_node(pos, {name="air", param1=0, param2=0})
 			minetest.log("action","Destroying bones"..minetest.pos_to_string(pos))
 		end
 	end

@@ -10,12 +10,12 @@ if minetest.get_modpath("bucket") then
 				return
 			end
 		-- Check if pointing to a liquid source
-			n = minetest.env:get_node(pointed_thing.under)
+			n = minetest.get_node(pointed_thing.under)
 			liquiddef = bucket.liquids[n.name]
 			if liquiddef ~= nil and liquiddef.source == n.name and liquiddef.itemname ~= nil then
 				local player = user:get_player_name()
 				if landrush.can_interact(pointed_thing.under, player) then
-					minetest.env:add_node(pointed_thing.under, {name="air"})
+					minetest.add_node(pointed_thing.under, {name="air"})
 					return {name=liquiddef.itemname}
 				else
 					owner = landrush.get_owner(pointed_thing.under)
@@ -33,7 +33,7 @@ if minetest.get_modpath("bucket") then
 				if pointed_thing.type ~= "node" then
 					return
 				end
-				n = minetest.env:get_node(pointed_thing.under)
+				n = minetest.get_node(pointed_thing.under)
 				local player = user:get_player_name()
 				if minetest.registered_nodes[n.name].buildable_to then
 					if landrush.can_interact(pointed_thing.under, player) then

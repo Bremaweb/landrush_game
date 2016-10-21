@@ -67,9 +67,9 @@ function snow.make_pine(pos,snow,xmas)
         end
         if xmas then
                 env:remove_node(pos)
-                minetest.env:spawn_tree(pos, xmas_tree)
+                minetest.spawn_tree(pos, xmas_tree)
         else
-                minetest.env:spawn_tree(pos, pine_tree)
+                minetest.spawn_tree(pos, pine_tree)
         end
         if snow then
                 local x,z = pos.x,pos.z

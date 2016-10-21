@@ -3,7 +3,7 @@
 --
 
 local function is_water(pos)
-	local nn = minetest.env:get_node(pos).name
+	local nn = minetest.get_node(pos).name
 	return minetest.get_item_group(nn, "water") ~= 0
 end
 
@@ -114,7 +114,7 @@ minetest.register_craftitem("snow:sled", {
  		local pos = {x=0,y=-1000, z=0}
  		local name = placer:get_player_name()
  		if not players_sled[name] then
-			local sled = minetest.env:add_entity(pos, "snow:sled")
+			local sled = minetest.add_entity(pos, "snow:sled")
 			sled:get_luaentity():on_rightclick(placer)
 		end
 	end,

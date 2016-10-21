@@ -6,7 +6,7 @@ local CACTUS_MAX_DENSITY = 3
 local NODE_TO_GROW = "default:cactus"
 
 local function get_nearby_cactus_count(pos)
-    local found_nodes = minetest.env:find_nodes_in_area(
+    local found_nodes = minetest.find_nodes_in_area(
 	{ x = pos.x - 1, y = pos.y - 1, z = pos.z - 1 },
 	{ x = pos.x + 1, y = pos.y + 1, z = pos.z + 1 },
 	{ NODE_TO_GROW }
@@ -26,7 +26,7 @@ local function grow_cactus(pos)
 		    y = pos.y + j,
 		    z = pos.z + k
 		}
-		if(minetest.env:get_node(new_pos).name == "air") then
+		if(minetest.get_node(new_pos).name == "air") then
 		    nature:grow_node(new_pos, NODE_TO_GROW)
 		end
 	    end

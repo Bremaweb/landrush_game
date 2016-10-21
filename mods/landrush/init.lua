@@ -46,7 +46,7 @@ landrush.load_claims()
 			if owner then
 				minetest.chat_send_player(player, "This area is already owned by "..owner)
 			else
-				minetest.env:remove_node(pointed_thing.above)
+				minetest.remove_node(pointed_thing.above)
 				chunk = landrush.get_chunk(pointed_thing.above)
 				landrush.claims[chunk] = {owner=placer:get_player_name(),shared={},claimtype="landclaim"}
 				landrush.save_claims()

@@ -15,7 +15,7 @@ dofile(minetest.get_modpath(current_mod_name) .. "/trees.lua")
 local function grow_trunk(pos, nodename)
     nature:grow_node(pos, nodename)
 
-    local found_air = minetest.env:find_nodes_in_area(
+    local found_air = minetest.find_nodes_in_area(
 	{ x = pos.x - 1, y = pos.y - 1, z = pos.z - 1 },
 	{ x = pos.x + 1, y = pos.y + 1, z = pos.z + 1 },
 	{ "default:air" }
@@ -31,18 +31,18 @@ minetest.register_abm({
     chance = ABM_CHANCE,
 
     action = function(pos, node, active_object_count, active_object_count_wider)
-        if minetest.env:get_node_light(pos, nil) < MINIMUM_LIGHT then
+        if minetest.get_node_light(pos, nil) < MINIMUM_LIGHT then
             return
         end
 
         -- Check for trunks in area
-	local found_trees = minetest.env:find_nodes_in_area(
+	local found_trees = minetest.find_nodes_in_area(
 	    { x = pos.x - 1, y = pos.y - 1, z = pos.z - 1 },
 	    { x = pos.x + 1, y = pos.y + 1, z = pos.z + 1 },
 	    { "default:tree" }
 	)
 	local trunk_count = table.getn(found_trees)
-	found_trees = minetest.env:find_nodes_in_area(
+	found_trees = minetest.find_nodes_in_area(
 	    { x = pos.x - 1, y = pos.y - 1, z = pos.z - 1 },
 	    { x = pos.x + 1, y = pos.y + 1, z = pos.z + 1 },
 	    { "default:jungletree" }
