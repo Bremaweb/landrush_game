@@ -11,7 +11,7 @@ Licensed under the zlib/libpng license, see LICENSE.txt for info.
 
 minetest.register_node( "moreores:mineral_gold", {
 	description = "Gold Ore",
-	tile_images = { "default_stone.png^moreores_mineral_gold.png" },
+	tiles = { "default_stone.png^moreores_mineral_gold.png" },
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -20,7 +20,7 @@ minetest.register_node( "moreores:mineral_gold", {
 
 minetest.register_node( "moreores:gold_block", {
 	description = "Gold Block",
-	tile_images = { "moreores_gold_block.png" },
+	tiles = { "moreores_gold_block.png" },
 	is_ground_content = true,
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -28,7 +28,7 @@ minetest.register_node( "moreores:gold_block", {
 
 minetest.register_node( "moreores:mineral_silver", {
 	description = "Silver Ore",
-	tile_images = { "default_stone.png^moreores_mineral_silver.png" },
+	tiles = { "default_stone.png^moreores_mineral_silver.png" },
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -37,7 +37,7 @@ minetest.register_node( "moreores:mineral_silver", {
 
 minetest.register_node( "moreores:silver_block", {
 	description = "Silver Block",
-	tile_images = { "moreores_silver_block.png" },
+	tiles = { "moreores_silver_block.png" },
 	is_ground_content = true,
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -45,7 +45,7 @@ minetest.register_node( "moreores:silver_block", {
 
 minetest.register_node( "moreores:mineral_copper", {
 	description = "Copper Ore",
-	tile_images = { "default_stone.png^moreores_mineral_copper.png" },
+	tiles = { "default_stone.png^moreores_mineral_copper.png" },
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -54,7 +54,7 @@ minetest.register_node( "moreores:mineral_copper", {
 
 minetest.register_node( "moreores:mineral_tin", {
 	description = "Tin Ore",
-	tile_images = { "default_stone.png^moreores_mineral_tin.png" },
+	tiles = { "default_stone.png^moreores_mineral_tin.png" },
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -63,7 +63,7 @@ minetest.register_node( "moreores:mineral_tin", {
 
 minetest.register_node( "moreores:bronze_block", {
 	description = "Bronze Block",
-	tile_images = { "moreores_bronze_block.png" },
+	tiles = { "moreores_bronze_block.png" },
 	is_ground_content = true,
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -71,7 +71,7 @@ minetest.register_node( "moreores:bronze_block", {
 
 minetest.register_node( "moreores:mineral_mithril", {
 	description = "Mithril Ore",
-	tile_images = { "default_stone.png^moreores_mineral_mithril.png" },
+	tiles = { "default_stone.png^moreores_mineral_mithril.png" },
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -80,7 +80,7 @@ minetest.register_node( "moreores:mineral_mithril", {
 
 minetest.register_node( "moreores:mithril_block", {
 	description = "Mithril Block",
-	tile_images = { "moreores_mithril_block.png" },
+	tiles = { "moreores_mithril_block.png" },
 	is_ground_content = true,
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -89,7 +89,7 @@ minetest.register_node( "moreores:mithril_block", {
 minetest.register_node("moreores:copper_rail", {
 	description = "Copper Rail",
 	drawtype = "raillike",
-	tile_images = {"moreores_copper_rail.png", "moreores_copper_rail_curved.png", "moreores_copper_rail_t_junction.png", "moreores_copper_rail_crossing.png"},
+	tiles = {"moreores_copper_rail.png", "moreores_copper_rail_curved.png", "moreores_copper_rail_t_junction.png", "moreores_copper_rail_crossing.png"},
 	inventory_image = "moreores_copper_rail.png",
 	wield_image = "moreores_copper_rail.png",
 	paramtype = "light",

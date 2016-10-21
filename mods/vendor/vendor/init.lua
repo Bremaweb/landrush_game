@@ -28,7 +28,7 @@ dofile(minetest.get_modpath("vendor").."/log.lua")
 
 minetest.register_node("vendor:vendor", {
 	description = "Vending Machine",
-	tile_images ={"vendor_side.png", "vendor_side.png", "vendor_side.png",
+	tiles ={"vendor_side.png", "vendor_side.png", "vendor_side.png",
 		"vendor_side.png", "vendor_side.png", "vendor_vendor_front.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -42,7 +42,7 @@ minetest.register_node("vendor:vendor", {
 
 minetest.register_node("vendor:depositor", {
 	description = "Depositing Machine",
-	tile_images ={"vendor_side.png", "vendor_side.png", "vendor_side.png",
+	tiles ={"vendor_side.png", "vendor_side.png", "vendor_side.png",
 		"vendor_side.png", "vendor_side.png", "vendor_depositor_front.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
