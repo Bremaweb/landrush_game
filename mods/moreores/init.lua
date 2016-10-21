@@ -235,8 +235,8 @@ local oredefs = {
 		oredef = {clust_scarcity = moreores_silver_chunk_size * moreores_silver_chunk_size * moreores_silver_chunk_size,
 			clust_num_ores = moreores_silver_ore_per_chunk,
 			clust_size     = moreores_silver_chunk_size,
-			height_min     = moreores_silver_min_depth,
-			height_max     = moreores_silver_max_depth
+			y_min     = moreores_silver_min_depth,
+			y_max     = moreores_silver_max_depth
 			},
 		tools = {
 			pick = {
@@ -266,8 +266,8 @@ local oredefs = {
 		oredef = {clust_scarcity = moreores_tin_chunk_size * moreores_tin_chunk_size * moreores_tin_chunk_size,
 			clust_num_ores = moreores_tin_ore_per_chunk,
 			clust_size     = moreores_tin_chunk_size,
-			height_min     = moreores_tin_min_depth,
-			height_max     = moreores_tin_max_depth
+			y_min     = moreores_tin_min_depth,
+			y_max     = moreores_tin_max_depth
 			},
 		tools = {}
 	},
@@ -277,8 +277,8 @@ local oredefs = {
 		oredef = {clust_scarcity = moreores_mithril_chunk_size * moreores_mithril_chunk_size * moreores_mithril_chunk_size,
 			clust_num_ores = moreores_mithril_ore_per_chunk,
 			clust_size     = moreores_mithril_chunk_size,
-			height_min     = moreores_mithril_min_depth,
-			height_max     = moreores_mithril_max_depth
+			y_min     = moreores_mithril_min_depth,
+			y_max     = moreores_mithril_max_depth
 			},
 		tools = {
 			pick = {
@@ -365,4 +365,4 @@ if minetest.get_modpath("mg") then
 	dofile(moreores_modpath.."/mg.lua")
 end
 
-print(S("[moreores] loaded."))
+minetest.log("action",S("[moreores] loaded."))
