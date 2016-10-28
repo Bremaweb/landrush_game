@@ -4,6 +4,7 @@ local old_nodes = {"trail:dirt_with_grass_walked",
 					"trail:desert_sand_walked",
 					"trail:snow_walked",
 					"trail:snow_block_walked",
+					"trail:water_source_swam",
 					"fire:basic_flame", }
 local old_entities = {}
 
