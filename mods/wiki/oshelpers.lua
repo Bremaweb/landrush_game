@@ -10,7 +10,7 @@ else
 end
 
 function os.mkdir(dir)
-	local f = io.open(dir..DIR_SEP..".dummy")
+	local f = io.open(dir..DIR_SEP..".dummy", "r")
 	if f then
 		f:close()
 	else
