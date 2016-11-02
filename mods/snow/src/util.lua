@@ -45,7 +45,7 @@ local function loadConfig(path)
 	local config = {}
 	local file = io.open(path,"r")
   	if file then
-  		for line in file:lines(path) do
+  		for line in file:lines() do
 			if line:sub(1,1) ~= "#" then
 				local i, v = line:match("^(%S*) = (%S*)")
 				if i and v then
