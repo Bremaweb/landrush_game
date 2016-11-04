@@ -78,6 +78,9 @@ vendor.after_place_node = function(pos, placer)
 end
 
 vendor.can_dig = function(pos,player)
+	if player == nil then
+		return false
+	end
 	local meta = minetest.get_meta(pos);
 	local owner = meta:get_string("owner")
 	local name = player:get_player_name()
