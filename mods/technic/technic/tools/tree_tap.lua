@@ -10,10 +10,6 @@ minetest.register_tool("technic:treetap", {
 			return
 		end
 		local pos = pointed_thing.under
-		if minetest.is_protected(pos, user:get_player_name()) then
-			minetest.record_protection_violation(pos, user:get_player_name())
-			return
-		end
 		local node = minetest.get_node(pos)
 		local node_name = node.name
 		if node_name ~= "moretrees:rubber_tree_trunk" then
@@ -66,10 +62,8 @@ minetest.register_abm({
 	interval = 60,
 	chance = 15,
 	action = function(pos, node)
-		if minetest.find_node_near(pos, (moretrees and moretrees.leafdecay_radius) or 5, {"moretrees:rubber_tree_leaves"}) then
-			node.name = "moretrees:rubber_tree_trunk"
-			minetest.swap_node(pos, node)
-		end
+		node.name = "moretrees:rubber_tree_trunk"
+		minetest.swap_node(pos, node)
 	end
 })
 
