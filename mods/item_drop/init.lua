@@ -8,22 +8,31 @@ minetest.register_globalstep(function(dtime)
 			pos.y = pos.y+0.5
 			local inv = player:get_inventory()
 			
+			-- return early if not inv cause everything below require inv
+			if not inv then
+				return
+			end
+			
 			for _,object in ipairs(minetest.get_objects_inside_radius(pos, 1)) do
-				if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
-					if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
-						inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
-						if object:get_luaentity().itemstring ~= "" then
-							minetest.sound_play("item_drop_pickup", {
-								to_player = player:get_player_name(),
-								gain = 0.4,
-							})
-						end
-						object:get_luaentity().itemstring = ""
-						object:remove()
+				if not object:is_player() then
+					entity = object:get_luaentity()
+					if entity and entity.name == "__builtin:item" and entity.timer and entity.timer > 3 then
+						itemstack = ItemStack(entity.itemstring)
+						if inv:room_for_item("main", itemstack) then
+							inv:add_item("main", itemstack)
+							if entity.itemstring ~= "" then
+								minetest.sound_play("item_drop_pickup", {
+									to_player = player:get_player_name(),
+									gain = 0.4,
+								})
+							end
+							entity.itemstring = ""
+							object:remove()
 					end
 				end
 			end
 			
+			--[[ commented out because `object:get_luaentity().collect` will always be nil
 			for _,object in ipairs(minetest.get_objects_inside_radius(pos, 2)) do
 				if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
 					if object:get_luaentity().collect then
@@ -59,7 +68,7 @@ minetest.register_globalstep(function(dtime)
 							
 						end
 					end
-				end
+				end]]
 			end
 		end
 	end
