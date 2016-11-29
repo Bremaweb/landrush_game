@@ -4,7 +4,7 @@ local basenode = "lightsplus:light"
 for i, v in ipairs(letters) do
 	minetest.register_node("letters:letter_"..letters[i], {
 		description = "Letter "..string.upper(letters[i]),
-		tile_images = {"letterblock.png", "letterblock.png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png"},
+		tiles = {"letterblock.png", "letterblock.png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png"},
 		paramtype2 = "facedir",
 		legacy_facedir_simple = true,
 		sounds = default.node_sound_wood_defaults(),
@@ -12,7 +12,7 @@ for i, v in ipairs(letters) do
 	})
 	minetest.register_node("letters:letter_"..letters[i].."_on", {
 		description = "Letter "..string.upper(letters[i]).." on",
-		tile_images = {"letterblock.png", "letterblock.png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png"},
+		tiles = {"letterblock.png", "letterblock.png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png", "letterblock.png^letter_"..tostring(i)..".png"},
 		paramtype2 = "facedir",
 		legacy_facedir_simple = true,
 		sounds = default.node_sound_wood_defaults(),
@@ -22,7 +22,7 @@ for i, v in ipairs(letters) do
 	})
 	minetest.register_node("letters:letter_low_"..letters[i], {
 		description = "Lowercase letter "..string.upper(letters[i]),
-		tile_images = {"letterblock.png", "letterblock.png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png"},
+		tiles = {"letterblock.png", "letterblock.png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png"},
 		paramtype2 = "facedir",
 		legacy_facedir_simple = true,
 		sounds = default.node_sound_wood_defaults(),
@@ -30,7 +30,7 @@ for i, v in ipairs(letters) do
 	})
 	minetest.register_node("letters:letter_low_"..letters[i].."_on", {
 		description = "Lowercase letter "..string.upper(letters[i]).." on",
-		tile_images = {"letterblock.png", "letterblock.png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png"},
+		tiles = {"letterblock.png", "letterblock.png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png", "letterblock.png^letter_low_"..tostring(i)..".png"},
 		paramtype2 = "facedir",
 		legacy_facedir_simple = true,
 		sounds = default.node_sound_wood_defaults(),
@@ -43,7 +43,7 @@ end
 for i=0,9 do
 	minetest.register_node("letters:number_"..tostring(i), {
 		description = "Number "..tostring(i),
-		tile_images = {"letterblock.png", "letterblock.png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png"},
+		tiles = {"letterblock.png", "letterblock.png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png"},
 		paramtype2 = "facedir",
 		legacy_facedir_simple = true,
 		sounds = default.node_sound_wood_defaults(),
@@ -52,7 +52,7 @@ for i=0,9 do
 
 	minetest.register_node("letters:number_"..tostring(i).."_on", {
 		description = "Number "..tostring(i),
-		tile_images = {"letterblock.png", "letterblock.png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png"},
+		tiles = {"letterblock.png", "letterblock.png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png", "letterblock.png^number_"..tostring(i)..".png"},
 		paramtype2 = "facedir",
 		legacy_facedir_simple = true,
 		sounds = default.node_sound_wood_defaults(),
@@ -72,7 +72,7 @@ if minetest.registered_nodes["lightsplus:light"] == nil or minetest.registered_n
 
 	minetest.register_node("letters:space_on", {
 		description = "letter space on",
-		tile_images = {"letterblock.png"},
+		tiles = {"letterblock.png"},
 		drop = 'letters:space',
 		light_source = 14,
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,not_in_creative_inventory=1},
