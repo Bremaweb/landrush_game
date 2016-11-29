@@ -144,7 +144,7 @@ minetest.register_entity(":__builtin:item", {
 				return
 			end
 		end
-		
+]]		
 		p.y = p.y - 0.3
 		local nn = minetest.get_node(p).name
 		-- If node is not registered or node is walkably solid
@@ -167,7 +167,6 @@ minetest.register_entity(":__builtin:item", {
 				})
 			end
 		end
-]]
 	end,
 
 	on_punch = function(self, hitter)
