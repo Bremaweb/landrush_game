@@ -153,3 +153,28 @@ minetest.register_node(":farming:scarecrow_light", {
 })
 
 
+-- pumpkin seed amount:
+
+minetest.register_node(":farming:pumpkin", {
+	description = "Pumpkin",
+	paramtype2 = "facedir",
+	tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png"},
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, plant=1},
+	sounds = default.node_sound_wood_defaults(),
+	
+	on_punch = function(pos, node, puncher)
+		local tool = puncher:get_wielded_item():get_name()
+		if tool and tool == "default:sword_wood" or tool == "default:sword_stone" or tool == "default:sword_steel" or tool == "default:sword_mese" then
+			node.name = "farming:pumpkin_face"
+			minetest.set_node(pos, node)
+			puncher:get_inventory():add_item("main", ItemStack("farming:pumpkin_seed 4"))
+			if math.random(1, 2) == 1 then
+				puncher:get_inventory():add_item("main", ItemStack("farming:pumpkin_seed 3"))
+			end
+			if math.random(1, 3) == 1 then
+				puncher:get_inventory():add_item("main", ItemStack("farming:pumpkin_seed 5"))
+			end
+		end
+	end
+})
+

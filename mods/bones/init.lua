@@ -74,7 +74,9 @@ minetest.register_node("bones:bones", {
 
 	on_punch = function(pos, node, player)
 		if not is_owner(pos, player:get_player_name()) then
-			return
+			if minetest.get_node_timer(pos):is_started() then	-- protect only "new" bones, if no timer assume they are old style and allow pickup
+				return
+			end
 		end
 
 		if minetest.get_meta(pos):get_string("infotext") == "" then
@@ -113,6 +115,7 @@ minetest.register_node("bones:bones", {
 		if time >= share_bones_time then
 			meta:set_string("infotext", meta:get_string("owner") .. "'s old bones")
 			meta:set_string("owner", "")
+			minetest.get_node_timer(pos):stop()	-- stop timer for old bones
 		else
 			meta:set_int("time", time)
 			return true

@@ -28,10 +28,11 @@ minetest.register_abm({
 		for _,obj in ipairs(objects) do
 			if obj:is_player() then
 				local name = obj:get_player_name()
-				local obj_p = obj:getpos()		
+				local obj_p = obj:getpos()
 				local claim_owner = landrush.get_owner(obj_p)
+--print("Turret at "..minetest.pos_to_string(pos).." owned by "..(turret_owner or "--NIL--").." placed on land belonging to "..(claim_owner or "--NIL--").." considers shooting at "..name.." ("..minetest.pos_to_string(obj_p)..")\n")
 				if ( claim_owner == turret_owner ) then
-					if ( landrush.can_interact(obj_p,name) ~= true ) then
+					if ( not landrush.can_interact(obj_p,name) ) then
 						local los, blocking_pos = minetest.line_of_sight({x=obj_p.x,y=(obj_p.y+1),z=obj_p.z}, pos, 1)
 						if ( blocking_pos.x == pos.x and blocking_pos.y == pos.y and blocking_pos.z == pos.z ) then
 							local calc = {x=obj_p.x - pos.x,y=obj_p.y+1 - pos.y,z=obj_p.z - pos.z}	
