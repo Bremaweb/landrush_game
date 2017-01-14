@@ -15,8 +15,8 @@ local pabeds = { "red", "orange", "yellow", "green", "blue", "violet", "black", 
 local pabedsrm = {}
 for i,v in ipairs(pabeds) do
 	-- replace bottoms
-	minetest.register_alias("bedsold:bed_bottom_"..v,"homedecor:bed_"..v.."_regular")
-	table.insert(pabedsrm,"bedsold:bed_top_"..v);
+	minetest.register_alias("beds:bed_bottom_"..v,"homedecor:bed_"..v.."_regular")
+	table.insert(pabedsrm,"beds:bed_top_"..v);
 end
 
 -- remove tops
