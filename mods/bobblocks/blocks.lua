@@ -15,7 +15,6 @@ local bobblockslist = {
 	{"violet", "Violet",  {2, 'bobblocks:redblock',  'bobblocks:blueblock',   ''}, },
 	{"indigo", "Indigo",  {3, 'bobblocks:redblock',  'bobblocks:blueblock',    'bobblocks:whiteblock'}, },
 }
-local bobblockspunch = {}
 
 -- register blocks and poles
 for i in ipairs(bobblockslist) do
