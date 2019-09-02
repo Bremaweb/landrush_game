@@ -250,7 +250,7 @@ minetest.register_node("flowers:waterlily", {
 			if not minetest.is_protected(pos, player_name) then
 				minetest.set_node(pos, {name = "flowers:waterlily",
 					param2 = math.random(0, 3)})
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					itemstack:take_item()
 				end
 			else

@@ -45,6 +45,6 @@ minetest.register_craft({
 	}
 })
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "endtable loaded")
 end

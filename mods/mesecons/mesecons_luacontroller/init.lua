@@ -198,7 +198,7 @@ end
 -------------------------
 
 local function safe_print(param)
-	print(dump(param))
+	--print(dump(param))
 end
 
 local function safe_date()
@@ -417,8 +417,7 @@ local function save_memory(pos, meta, mem)
 	if (#memstring <= memsize_max) then
 		meta:set_string("lc_memory", memstring)
 	else
-		print("Error: Luacontroller memory overflow. "..memsize_max.." bytes available, "
-				..#memstring.." required. Controller overheats.")
+		--print("Error: Luacontroller memory overflow. "..memsize_max.." bytes available, "..#memstring.." required. Controller overheats.")
 		burn_controller(pos)
 	end
 end
@@ -521,7 +520,7 @@ local function on_receive_fields(pos, form_name, fields, sender)
 	reset_meta(pos, fields.code)
 	local err = run(pos, {type="program"})
 	if err then
-		print(err)
+		--print(err)
 		reset_meta(pos, fields.code, err)
 	end
 end

@@ -326,7 +326,7 @@ function doors.register(name, def)
 				meta:set_string("infotext", "Owned by " .. pn)
 			end
 
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				itemstack:take_item()
 			end
 
@@ -550,7 +550,7 @@ function doors.register_trapdoor(name, def)
 			meta:set_string("doors_owner", pn)
 			meta:set_string("infotext", "Owned by "..pn)
 
-			return minetest.setting_getbool("creative_mode")
+			return minetest.settings:get_bool("creative_mode")
 		end
 
 		def.on_blast = function() end

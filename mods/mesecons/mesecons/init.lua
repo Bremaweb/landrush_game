@@ -126,7 +126,7 @@ function mesecon.receptor_off(pos, rules)
 end
 
 
-print("[OK] Mesecons")
+--print("[OK] Mesecons")
 
 -- Deprecated stuff
 -- To be removed in future releases

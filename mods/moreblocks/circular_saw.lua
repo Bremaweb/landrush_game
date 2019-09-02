@@ -12,8 +12,7 @@ circular_saw = {}
 circular_saw.known_stairs = setmetatable({}, {
 	__newindex = function(k, v)
 		local modname = minetest.get_current_modname()
-		print(("WARNING: mod %s tried to add node %s to the circular saw"
-				.. " manually."):format(modname, v))
+		--print(("WARNING: mod %s tried to add node %s to the circular saw manually."):format(modname, v))
 	end,
 })
 
@@ -168,8 +167,7 @@ function circular_saw:update_inventory(pos, amount)
 	if modname == "default" then
 		modname = "moreblocks"
 	end
-	-- print("circular_saw set to " .. modname .. " : "
-	--	.. material .. " with " .. (amount) .. " microblocks.")
+	-- --print("circular_saw set to " .. modname .. " : ".. material .. " with " .. (amount) .. " microblocks.")
 
 	-- 0-7 microblocks may remain left-over:
 	inv:set_list("micro", {

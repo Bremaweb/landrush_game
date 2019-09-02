@@ -7,10 +7,10 @@ if minetest.get_modpath("screwdriver") then
 	-- Start overwriting the standard function
 	tmp_tool = minetest.registered_tools["screwdriver:screwdriver"]
 	if tmp_tool == nil then
-		print("Something went wrong when correcting the screwdriver...")
+		--print("Something went wrong when correcting the screwdriver...")
 	end
 	if tmp_tool.on_use == nil then
-		print( "tmp_tool.on_use is a nil value... ")
+		--print( "tmp_tool.on_use is a nil value... ")
 	end
 	tmp_tool.on_use = function(itemstack, user, pointed_thing)
 		safe_screwdriver_handler(itemstack, user, pointed_thing)
@@ -25,7 +25,7 @@ if minetest.get_modpath("screwdriver") then
 		end
 		minetest.registered_tools["screwdriver:screwdriver"..i] = tmp_tool
 	end
-	print( "Rewritten screwdriver routines..." )
+	--print( "Rewritten screwdriver routines..." )
 end
 
 

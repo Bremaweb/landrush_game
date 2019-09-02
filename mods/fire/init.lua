@@ -125,7 +125,7 @@ minetest.register_tool("fire:flint_and_steel", {
 				end
 			end
 		end
-		if not minetest.setting_getbool("creative_mode") then
+		if not minetest.settings:get_bool("creative_mode") then
 			return itemstack
 		end
 	end
@@ -183,7 +183,7 @@ function fire.update_sounds_around(pos)
 	local p0, p1 = fire.get_area_p0p1(pos)
 	local cp = {x = (p0.x + p1.x) / 2, y = (p0.y + p1.y) / 2, z = (p0.z + p1.z) / 2}
 	local flames_p = minetest.find_nodes_in_area(p0, p1, {"fire:basic_flame"})
-	--print("number of flames at "..minetest.pos_to_string(p0).."/"
+	----print("number of flames at "..minetest.pos_to_string(p0).."/"
 	--		..minetest.pos_to_string(p1)..": "..#flames_p)
 	local should_have_sound = (#flames_p > 0)
 	local wanted_sound = nil
@@ -237,7 +237,7 @@ minetest.register_abm({
 
 -- Enable the following ABMs according to 'disable fire' setting
 
-if minetest.setting_getbool("disable_fire") then
+if minetest.settings:get_bool("disable_fire") then
 
 	-- Remove basic flames only
 

@@ -40,7 +40,7 @@ load_module(path .. "/wand.lua")
 load_module(path .. "/cuboid.lua")
 
 
-if minetest.setting_getbool("log_mods") then
-	print("[WorldEdit] Loaded!")
+if minetest.settings:get_bool("log_mods") then
+	--print("[WorldEdit] Loaded!")
 end
 

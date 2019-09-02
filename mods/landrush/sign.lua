@@ -6,8 +6,7 @@ signdef.description = "Unprotected Sign"
 signdef.on_receive_fields = function(pos, formname, fields, sender)
 	local meta = minetest.get_meta(pos)
 	if not fields.text then return end
-	print((sender:get_player_name() or "").." wrote \""..fields.text..
-			"\" to sign at "..minetest.pos_to_string(pos))
+	--print((sender:get_player_name() or "").." wrote \""..fields.text.."\" to sign at "..minetest.pos_to_string(pos))
 	meta:set_string("text", fields.text)
 	meta:set_string("infotext", '"'..fields.text..'"')
 end

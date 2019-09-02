@@ -36,7 +36,7 @@ unified_inventory = {
 	fgettext = function(s) return minetest.formspec_escape(mygettext(s)) end,
 
 	-- "Lite" mode
-	lite_mode = minetest.setting_getbool("unified_inventory_lite"),
+	lite_mode = minetest.settings:get_bool("unified_inventory_lite"),
 
 	pagecols = 8,
 	pagerows = 10,

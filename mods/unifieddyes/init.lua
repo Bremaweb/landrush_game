@@ -362,5 +362,5 @@ minetest.register_alias("unifieddyes:grey_paint", "dye:grey")
 minetest.register_alias("unifieddyes:darkgrey_paint", "dye:dark_grey")
 minetest.register_alias("unifieddyes:carbon_black", "dye:black")
 
-print("[UnifiedDyes] Loaded!")
+--print("[UnifiedDyes] Loaded!")
 

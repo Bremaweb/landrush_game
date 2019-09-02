@@ -144,4 +144,4 @@ for i in ipairs(grasses_list) do
 	})
 end
 
-print("[Junglegrass] Loaded.")
+--print("[Junglegrass] Loaded.")

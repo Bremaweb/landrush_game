@@ -129,13 +129,13 @@ local function form_handler(pos, formname, fields, sender)
 
 		if onesize_products[k] ~= nil or (twosize_products[k] ~= nil and size==2) then
 			meta:set_string("cnc_product",  inputname .. "_technic_cnc_" .. k)
-			--print(inputname .. "_technic_cnc_" .. k)
+			----print(inputname .. "_technic_cnc_" .. k)
 			break
 		end
 
 		if twosize_products[k] ~= nil and size==1 then
 			meta:set_string("cnc_product",  inputname .. "_technic_cnc_" .. k .. "_double")
-			--print(inputname .. "_technic_cnc_" .. k .. "_double")
+			----print(inputname .. "_technic_cnc_" .. k .. "_double")
 			break
 		end
 	end

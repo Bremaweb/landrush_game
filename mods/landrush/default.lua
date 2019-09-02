@@ -1,7 +1,7 @@
 if minetest.get_modpath("default") then	
 	minetest.override_item("default:sign_wall", {
 		on_receive_fields = function(pos, formname, fields, sender)
-			--print("Sign at "..minetest.pos_to_string(pos).." got "..dump(fields))
+			----print("Sign at "..minetest.pos_to_string(pos).." got "..dump(fields))
 			if not fields.text then return end
 			local player_name = sender:get_player_name()
 			if minetest.is_protected(pos, player_name) then

@@ -7,7 +7,7 @@ Example:
     	name = "Make Hollow Cylinder",
     	privs = {worldedit=true},
     	get_formspec = function(name) return "some formspec here" end,
-    	on_select = function(name) print(name .. " clicked the button!") end,
+    	on_select = function(name) --print(name .. " clicked the button!") end,
     })
 
 Use `nil` for the `options` parameter to unregister the function associated with the given identifier.
@@ -32,7 +32,7 @@ end
 Example:
 
     worldedit.register_gui_handler("worldedit_gui_hollow_cylinder", function(name, fields)
-    	print(minetest.serialize(fields))
+    	--print(minetest.serialize(fields))
     end)
 ]]
 
@@ -144,7 +144,7 @@ else --fallback button
 			return
 		end
 		if (minetest.check_player_privs(name, {creative=true}) or
-				minetest.setting_getbool("creative_mode")) and
+				minetest.settings:get_bool("creative_mode")) and
 				creative then --creative is active, add button to modified formspec
 			local creative_formspec = player:get_inventory_formspec()
 			local tab_id = tonumber(creative_formspec:match("tabheader%[.-;(%d+)%;"))

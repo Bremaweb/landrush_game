@@ -15,7 +15,7 @@ minetest.register_alias("stairs:slab_pinewood", "stairs:slab_pine_wood")
 
 -- Get setting for replace ABM
 
-local replace = minetest.setting_getbool("enable_stairs_replace_abm")
+local replace = false;
 
 
 -- Register stairs.

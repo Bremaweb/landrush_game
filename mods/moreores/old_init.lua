@@ -708,7 +708,7 @@ local function generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, 
 		chunk_size = 2
 	end
 	local inverse_chance = math.floor(chunk_size*chunk_size*chunk_size / ore_per_chunk)
-	--print("generate_ore num_chunks: "..dump(num_chunks))
+	----print("generate_ore num_chunks: "..dump(num_chunks))
 	for i=1,num_chunks do
 	if (y_max-chunk_size+1 <= y_min) then return end
 		local y0 = pr:next(y_min, y_max-chunk_size+1)
@@ -733,7 +733,7 @@ local function generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, 
 			end
 		end
 	end
-	--print("generate_ore done")
+	----print("generate_ore done")
 end
 
 minetest.register_on_generated(function(minp, maxp, seed)

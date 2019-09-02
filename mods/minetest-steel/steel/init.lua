@@ -1,6 +1,6 @@
 dofile(minetest.get_modpath("steel").."/rust.lua")
 
-if minetest.setting_getbool("creative_mode") and not minetest.get_modpath("unified_inventory") then
+if minetest.settings:get_bool("creative_mode") and not minetest.get_modpath("unified_inventory") then
 	steel_expect_infinite_stacks = true
 else
 	steel_expect_infinite_stacks = false

@@ -1783,7 +1783,7 @@ local function register_sign(material, desc, def)
 			meta:set_string("formspec", "field[text;;${text}]")
 		end,
 		on_receive_fields = function(pos, formname, fields, sender)
-			--print("Sign at "..minetest.pos_to_string(pos).." got "..dump(fields))
+			----print("Sign at "..minetest.pos_to_string(pos).." got "..dump(fields))
 			local player_name = sender:get_player_name()
 			if minetest.is_protected(pos, player_name) then
 				minetest.record_protection_violation(pos, player_name)

@@ -43,7 +43,7 @@ local function register_recipe(typename, data)
 	local recipe = {time = data.time, input = {}, output = data.output}
 	local index = get_recipe_index(data.input)
 	if not index then
-		print("[Technic] ignored registration of garbage recipe!")
+		--print("[Technic] ignored registration of garbage recipe!")
 		return
 	end
 	for _, stack in ipairs(data.input) do
@@ -82,7 +82,7 @@ function technic.get_recipe(typename, items)
 	end
 	local index = get_recipe_index(items)
 	if not index then
-		print("[Technic] ignored registration of garbage recipe!")
+		--print("[Technic] ignored registration of garbage recipe!")
 		return
 	end
 	local recipe = technic.recipes[typename].recipes[index]

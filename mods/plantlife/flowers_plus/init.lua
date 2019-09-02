@@ -467,4 +467,4 @@ minetest.register_alias("flowers:potted_cotton_plant", "flowers:potted_dandelion
 minetest.register_alias("flowers:cotton", "farming:string")
 minetest.register_alias("flowers:cotton_wad", "farming:string")
 
-print("[Flowers] Loaded.")
+--print("[Flowers] Loaded.")

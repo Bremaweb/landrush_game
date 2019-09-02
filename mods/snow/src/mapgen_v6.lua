@@ -307,7 +307,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	if write_to_map and debug then -- print if any column of mapchunk was snow biome
 		local biome_string,biome2_string = biome_to_string(biome,biome2)
 		local chugent = math.ceil((os.clock() - t1) * 1000)
-		print("[snow] "..biome_string.." and "..biome2_string.." x "..minp.x.." z "..minp.z.." time "..chugent.." ms")
+		--print("[snow] "..biome_string.." and "..biome2_string.." x "..minp.x.." z "..minp.z.." time "..chugent.." ms")
 	end
 end)
 

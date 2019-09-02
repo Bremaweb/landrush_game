@@ -323,16 +323,16 @@ minetest.register_abm({
 	chance = 5,
 
 	action = function(p0, node, _, _)
-		--print("leafdecay ABM at "..p0.x..", "..p0.y..", "..p0.z..")")
+		----print("leafdecay ABM at "..p0.x..", "..p0.y..", "..p0.z..")")
 		local do_preserve = false
 		local d = minetest.registered_nodes[node.name].groups.leafdecay
 		if not d or d == 0 then
-			--print("not groups.leafdecay")
+			----print("not groups.leafdecay")
 			return
 		end
 		local n0 = minetest.get_node(p0)
 		if n0.param2 ~= 0 then
-			--print("param2 ~= 0")
+			----print("param2 ~= 0")
 			return
 		end
 		local p0_hash = nil
@@ -346,10 +346,10 @@ minetest.register_abm({
 				-- work at the border of the active area
 				if n.name == "ignore" or (reg and reg.groups.tree and
 						reg.groups.tree ~= 0) then
-					--print("cached trunk still exists")
+					----print("cached trunk still exists")
 					return
 				end
-				--print("cached trunk is invalid")
+				----print("cached trunk is invalid")
 				-- Cache is invalid
 				table.remove(default.leafdecay_trunk_cache, p0_hash)
 			end
@@ -365,7 +365,7 @@ minetest.register_abm({
 		if p1 then
 			do_preserve = true
 			if default.leafdecay_enable_cache then
-				--print("caching trunk")
+				----print("caching trunk")
 				-- Cache the trunk
 				default.leafdecay_trunk_cache[p0_hash] = p1
 			end

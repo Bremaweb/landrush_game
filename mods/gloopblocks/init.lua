@@ -189,7 +189,7 @@ minetest.register_alias("gloopblocks:obsidian", "default:obsidian")
 
 -- Stairs/slabs defs, conversion of normal -> mossy items
 
-if minetest.setting_getbool("gloopblocks_mossy_conversion") ~= false then
+if minetest.settings:get_bool("gloopblocks_mossy_conversion") ~= false then
 
 	function gloopblocks_register_mossy_conversion(mossyobjects)
 		for i in ipairs(mossyobjects) do
@@ -216,7 +216,7 @@ if minetest.get_modpath("xdecor") then
 		"evil_block", "basalt", "pumice"
 	}
 
-	if minetest.setting_getbool("gloopblocks_mossy_conversion") then
+	if minetest.settings:get_bool("gloopblocks_mossy_conversion") then
 		local subnames = {
 			"", "_nanoslab", "_micropanel", "_microslab", "_thinstair", "_cube",
 			"_panel", "_slab", "_doublepanel", "_halfstair", "_outerstair",
@@ -386,7 +386,7 @@ if minetest.get_modpath("moreblocks") then
 
 	-- ABMs for mossy objects
 
-	if minetest.setting_getbool("gloopblocks_mossy_conversion") ~= false then
+	if minetest.settings:get_bool("gloopblocks_mossy_conversion") ~= false then
 
 		gloopblocks_register_mossy_conversion({
 			{ "default:cobble", 						"default:mossycobble" },
@@ -540,7 +540,7 @@ elseif minetest.get_modpath("stairs") then
 			default.node_sound_defaults())
 	end
 
-	if minetest.setting_getbool("gloopblocks_mossy_conversion") ~= false then
+	if minetest.settings:get_bool("gloopblocks_mossy_conversion") ~= false then
 
 		gloopblocks_register_mossy_conversion({
 			{ "default:cobble", 					"default:mossycobble" },
@@ -707,7 +707,7 @@ minetest.register_craftitem("gloopblocks:evil_stick", {
 -- define lava-cooling-based nodes and hook into the default lavacooling
 -- functions to generate basalt, pumice, and obsidian
 
-if minetest.setting_getbool("gloopblocks_lavacooling") ~= false then
+if minetest.settings:get_bool("gloopblocks_lavacooling") ~= false then
 
 	minetest.register_node("gloopblocks:obsidian_cooled", {
 		description = S("Obsidian"),
@@ -791,4 +791,4 @@ minetest.register_node("gloopblocks:fence_steel", {
 
 dofile(minetest.get_modpath("gloopblocks").."/crafts.lua")
 
-print(S("Gloopblocks Loaded!"))
+--print(S("Gloopblocks Loaded!"))

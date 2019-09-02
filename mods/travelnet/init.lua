@@ -78,7 +78,7 @@ travelnet.save_data = function()
       file:write( data );
       file:close();
    else
-      print("[Mod travelnet] Error: Savefile '"..tostring( path ).."' could not be written.");
+      --print("[Mod travelnet] Error: Savefile '"..tostring( path ).."' could not be written.");
    end
 end
 
@@ -93,7 +93,7 @@ travelnet.restore_data = function()
       travelnet.targets = minetest.deserialize( data );
       file:close();
    else
-      print("[Mod travelnet] Error: Savefile '"..tostring( path ).."' not found.");
+      --print("[Mod travelnet] Error: Savefile '"..tostring( path ).."' not found.");
    end
 end
 

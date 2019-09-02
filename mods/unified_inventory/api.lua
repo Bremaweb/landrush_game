@@ -42,7 +42,7 @@ minetest.after(0.01, function()
 	end
 	table.sort(unified_inventory.items_list)
 	unified_inventory.items_list_size = #unified_inventory.items_list
-	print("Unified Inventory. inventory size: "..unified_inventory.items_list_size)
+	--print("Unified Inventory. inventory size: "..unified_inventory.items_list_size)
 	for _, name in ipairs(unified_inventory.items_list) do
 		local def = minetest.registered_items[name]
 		-- Simple drops
@@ -301,6 +301,6 @@ end
 
 function unified_inventory.is_creative(playername)
 	return minetest.check_player_privs(playername, {creative=true})
-	or minetest.setting_getbool("creative_mode")
+	or minetest.settings:get_bool("creative_mode")
 end
 

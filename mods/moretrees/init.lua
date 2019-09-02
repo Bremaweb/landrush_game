@@ -56,7 +56,7 @@ moretrees.gettext = S
 
 -- infinite stacks checking
 
-if minetest.get_modpath("unified_inventory") or not minetest.setting_getbool("creative_mode") then
+if minetest.get_modpath("unified_inventory") or not minetest.settings:get_bool("creative_mode") then
 	moretrees.expect_infinite_stacks = false
 else
 	moretrees.expect_infinite_stacks = true
@@ -307,4 +307,4 @@ function moretrees:grow_fir_snow(pos)
 	minetest.spawn_tree(pos,moretrees.fir_model)
 end
 
-print("[Moretrees] Loaded (2013-02-11)")
+--print("[Moretrees] Loaded (2013-02-11)")

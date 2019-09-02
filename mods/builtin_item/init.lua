@@ -78,7 +78,7 @@ minetest.register_entity(":__builtin:item", {
 	end,
 	
 	on_step = function(self, dtime)
-		local time = minetest.setting_get("remove_items")
+		local time = minetest.settings:get("remove_items")
 		if not time then
 			time = 300
 		end
@@ -177,6 +177,6 @@ minetest.register_entity(":__builtin:item", {
 	end,
 })
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "builtin_item loaded")
 end

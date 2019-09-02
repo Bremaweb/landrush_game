@@ -86,7 +86,7 @@ local check_node_subp = function(PR_nodes, RE_nodes, BA_nodes, SP_nodes, all_nod
 	if technic.is_tier_cable(name, tier) then
 		add_new_cable_node(all_nodes, pos)
 	elseif machines[name] then
-		--dprint(name.." is a "..machines[name])
+		--d--print(name.." is a "..machines[name])
 		if     machines[name] == technic.producer then
 			add_new_cable_node(PR_nodes, pos)
 		elseif machines[name] == technic.receiver then
@@ -119,7 +119,7 @@ local traverse_network = function(PR_nodes, RE_nodes, BA_nodes, SP_nodes, all_no
 		{x=pos.x,   y=pos.y-1, z=pos.z},
 		{x=pos.x,   y=pos.y,   z=pos.z+1},
 		{x=pos.x,   y=pos.y,   z=pos.z-1}}
-	--print("ON")
+	----print("ON")
 	for i, cur_pos in pairs(positions) do
 		check_node_subp(PR_nodes, RE_nodes, BA_nodes, SP_nodes, all_nodes, cur_pos, machines, tier, sw_pos, i == 3)
 	end
@@ -202,7 +202,7 @@ minetest.register_abm({
 		if tier then
 			PR_nodes, BA_nodes, RE_nodes = get_network(pos, pos1, tier)
 		else
-			--dprint("Not connected to a network")
+			--d--print("Not connected to a network")
 			meta:set_string("infotext", S("%s Has No Network"):format(machine_name))
 			return
 		end
@@ -261,7 +261,7 @@ minetest.register_abm({
 			meta1 = minetest.get_meta(pos1)
 			PR_eu_supply = PR_eu_supply + meta1:get_int(eu_supply_str)
 		end
-		--dprint("Total PR supply:"..PR_eu_supply)
+		--d--print("Total PR supply:"..PR_eu_supply)
 
 		-- Get all the demand from the RE nodes
 		local RE_eu_demand = 0
@@ -269,7 +269,7 @@ minetest.register_abm({
 			meta1 = minetest.get_meta(pos1)
 			RE_eu_demand = RE_eu_demand + meta1:get_int(eu_demand_str)
 		end
-		--dprint("Total RE demand:"..RE_eu_demand)
+		--d--print("Total RE demand:"..RE_eu_demand)
 
 		-- Get all the power from the BA nodes
 		local BA_eu_supply = 0
@@ -277,7 +277,7 @@ minetest.register_abm({
 			meta1 = minetest.get_meta(pos1)
 			BA_eu_supply = BA_eu_supply + meta1:get_int(eu_supply_str)
 		end
-		--dprint("Total BA supply:"..BA_eu_supply)
+		--d--print("Total BA supply:"..BA_eu_supply)
 
 		-- Get all the demand from the BA nodes
 		local BA_eu_demand = 0
@@ -285,7 +285,7 @@ minetest.register_abm({
 			meta1 = minetest.get_meta(pos1)
 			BA_eu_demand = BA_eu_demand + meta1:get_int(eu_demand_str)
 		end
-		--dprint("Total BA demand:"..BA_eu_demand)
+		--d--print("Total BA demand:"..BA_eu_demand)
 
 		meta:set_string("infotext",
 				S("@1. Supply: @2 Demand: @3",
@@ -293,7 +293,7 @@ minetest.register_abm({
 
 		-- If the PR supply is enough for the RE demand supply them all
 		if PR_eu_supply >= RE_eu_demand then
-		--dprint("PR_eu_supply"..PR_eu_supply.." >= RE_eu_demand"..RE_eu_demand)
+		--d--print("PR_eu_supply"..PR_eu_supply.." >= RE_eu_demand"..RE_eu_demand)
 			for _, pos1 in pairs(RE_nodes) do
 				meta1 = minetest.get_meta(pos1)
 				local eu_demand = meta1:get_int(eu_demand_str)
@@ -310,14 +310,14 @@ minetest.register_abm({
 				meta1 = minetest.get_meta(pos1)
 				local eu_demand = meta1:get_int(eu_demand_str)
 				meta1:set_int(eu_input_str, math.floor(eu_demand * charge_factor))
-				--dprint("Charging battery:"..math.floor(eu_demand*charge_factor))
+				--d--print("Charging battery:"..math.floor(eu_demand*charge_factor))
 			end
 			return
 		end
 
 		-- If the PR supply is not enough for the RE demand we will discharge the batteries too
 		if PR_eu_supply + BA_eu_supply >= RE_eu_demand then
-			--dprint("PR_eu_supply "..PR_eu_supply.."+BA_eu_supply "..BA_eu_supply.." >= RE_eu_demand"..RE_eu_demand)
+			--d--print("PR_eu_supply "..PR_eu_supply.."+BA_eu_supply "..BA_eu_supply.." >= RE_eu_demand"..RE_eu_demand)
 			for _, pos1 in pairs(RE_nodes) do
 				meta1  = minetest.get_meta(pos1)
 				local eu_demand = meta1:get_int(eu_demand_str)
@@ -333,7 +333,7 @@ minetest.register_abm({
 				meta1 = minetest.get_meta(pos1)
 				local eu_supply = meta1:get_int(eu_supply_str)
 				meta1:set_int(eu_input_str, math.floor(eu_supply * charge_factor))
-				--dprint("Discharging battery:"..math.floor(eu_supply*charge_factor))
+				--d--print("Discharging battery:"..math.floor(eu_supply*charge_factor))
 			end
 			return
 		end

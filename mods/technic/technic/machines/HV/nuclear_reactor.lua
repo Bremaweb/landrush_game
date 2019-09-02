@@ -616,7 +616,7 @@ local function dmg_abm(pos, node)
 end
 
 --[[
-if minetest.setting_getbool("enable_damage") then
+if minetest.settings:get_bool("enable_damage") then
 	minetest.register_abm({
 		nodenames = {"group:radioactive"},
 		interval = 1,

@@ -26,7 +26,7 @@ local DEBUG = false --... except if you want to spam the console with debugging 
 
 function plantslib:dbg(msg)
 	if DEBUG then
-		print("[Plantlife] "..msg)
+		--print("[Plantlife] "..msg)
 		minetest.log("verbose", "[Plantlife] "..msg)
 	end
 end
@@ -48,7 +48,7 @@ local humidity_persistence = 0.5
 local humidity_scale = 250
 
 local time_scale = 1
-local time_speed = tonumber(minetest.setting_get("time_speed"))
+local time_speed = tonumber(minetest.settings:get("time_speed"))
 
 if time_speed and time_speed > 0 then
 	time_scale = 72 / time_speed
@@ -518,7 +518,7 @@ end
 
 -- Check for infinite stacks
 
-if minetest.get_modpath("unified_inventory") or not minetest.setting_getbool("creative_mode") then
+if minetest.get_modpath("unified_inventory") or not minetest.settings:get_bool("creative_mode") then
 	plantslib.expect_infinite_stacks = false
 else
 	plantslib.expect_infinite_stacks = true
@@ -534,4 +534,4 @@ function plantslib:get_nodedef_field(nodename, fieldname)
 end
 
 
-print("[Plantlife Library] Loaded")
+--print("[Plantlife Library] Loaded")

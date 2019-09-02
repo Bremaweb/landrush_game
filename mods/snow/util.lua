@@ -80,7 +80,7 @@ end
 for i,v in pairs(snow) do
 	local t = type(v)
 	if t == "string" or t == "number" or t == "boolean" then
-		local v = minetest.setting_get("snow_"..i)
+		local v = minetest.settings:get("snow_"..i)
 		if v ~= nil then
 			if v == "true" then v = true end
 			if v == "false" then v = false end

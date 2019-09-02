@@ -6,7 +6,7 @@ an working fix which restores original functionality
 if minetest.get_modpath( 'snow' ) then
 	local entity_prototype = minetest.registered_entities['snow:snowball_entity']
 	if not entity_prototype then
-		print( 'COuld not detect snowball prototype...')
+		--print( 'COuld not detect snowball prototype...')
 		return
 	end
 	entity_prototype.on_step = function(self, dtime)

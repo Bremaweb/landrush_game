@@ -2,7 +2,7 @@
 
 creative = {}
 local player_inventory = {}
-local creative_mode = minetest.setting_getbool("creative_mode")
+local creative_mode = minetest.settings:get_bool("creative_mode")
 
 -- Create detached creative inventory after loading all mods
 creative.init_creative_inventory = function(owner)
@@ -38,16 +38,16 @@ creative.init_creative_inventory = function(owner)
 		end,
 		on_take = function(inv, listname, index, stack, player)
 			local player_name, stack_name = player:get_player_name(), stack:get_name()
-			--print(player_name .. " takes item from creative inventory; listname = " .. listname .. ", index = " .. index .. ", stack = " .. dump(stack:to_table()))
+			----print(player_name .. " takes item from creative inventory; listname = " .. listname .. ", index = " .. index .. ", stack = " .. dump(stack:to_table()))
 			if stack then
 				minetest.log("action", player_name .. " takes " .. stack_name .. " from creative inventory")
-				--print("Stack name: " .. stack_name .. ", Stack count: " .. stack:get_count())
+				----print("Stack name: " .. stack_name .. ", Stack count: " .. stack:get_count())
 			end
 		end,
 	})
 
 	creative.update_creative_inventory(owner_name)
-	--print("creative inventory size: " .. player_inventory[player_name].size)
+	----print("creative inventory size: " .. player_inventory[player_name].size)
 end
 
 local function tab_category(tab_id)

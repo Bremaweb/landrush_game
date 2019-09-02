@@ -55,7 +55,7 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 		gain = 0.5,
 	})
 
-	if not minetest.setting_getbool("creative_mode") then
+	if not minetest.settings:get_bool("creative_mode") then
 		itemstack:add_wear(65535/(uses-1))
 	end
 	return itemstack
@@ -177,7 +177,7 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name = plantname, param2 = 1})
 	tick(pt.above)
-	if not minetest.setting_getbool("creative_mode") then
+	if not minetest.settings:get_bool("creative_mode") then
 		itemstack:take_item()
 	end
 	return itemstack

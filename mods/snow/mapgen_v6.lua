@@ -271,8 +271,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		
 		if debug then
 			biome_string,biome2_string = biomeToString(biome,biome2)
-			print(biome_string.." and "..biome2_string..": Snow Biome Genarated near x"..minp.x.." z"..minp.z)
-			print(string.format("elapsed time: %.2fms", (os.clock() - t1) * 1000))
+			--print(biome_string.." and "..biome2_string..": Snow Biome Genarated near x"..minp.x.." z"..minp.z)
+			--print(string.format("elapsed time: %.2fms", (os.clock() - t1) * 1000))
 		end
 	--end
 end)
