@@ -199,7 +199,7 @@ minetest.register_node("snow:star", {
 	sounds = default.node_sound_glass_defaults({dig = {name="default_glass_footstep", gain=0.2}}), -- Breaking "glass" sound makes it sound like a real, broken, Xmas tree ornament (Sorry, Mom!).  ;)-  ~ LazyJ
 	on_punch = function(pos, node, puncher) -- Added a "lit" star that can be punched on or off depending on your preference. ~ LazyJ
 		minetest.set_node(pos, {name = "snow:star_lit"})
-		nodeupdate(pos)
+		minetest.check_for_falling(pos)
 	end,
 })
 
@@ -219,7 +219,7 @@ minetest.register_node("snow:star_lit", {
 	sounds = default.node_sound_glass_defaults({dig = {name="default_glass_footstep", gain=0.2}}),
 	on_punch = function(pos, node, puncher)
 		minetest.set_node(pos, {name = "snow:star"})
-		nodeupdate(pos)
+		minetest.check_for_falling(pos)
 	end,
 })
 

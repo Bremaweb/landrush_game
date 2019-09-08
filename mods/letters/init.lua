@@ -681,10 +681,10 @@ if minetest.registered_nodes["letters:space"] then
 	local on_light_puncher = function (pos, node, puncher)
 		if node.name == 'letters:space' then
 			minetest.env:add_node(pos, {name="letters:space_on"})
-			nodeupdate(pos)
+			minetest.check_for_falling(pos)
 		elseif node.name == 'letters:space_on' then
 			minetest.env:add_node(pos, {name="letters:space",})
-			nodeupdate(pos)
+			minetest.check_for_falling(pos)
 		end
 	end
 	minetest.register_on_punchnode(on_light_puncher)

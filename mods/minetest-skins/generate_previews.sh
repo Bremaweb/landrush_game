@@ -9,8 +9,8 @@
 PNGCRUSH=true
 IMAGEMAGICK=true
 cd .previews
-rm ../skins/textures/*_preview*.png # Remove all previous previews
-blender -b skin_previews.blend --python-text "Generate previews" > /dev/null
+rm skins/textures/*_preview*.png # Remove all previous previews
+blender -b skin_previews.blend --python-text "Generate previews"
 if $IMAGEMAGICK
 	then echo "Stripping metadata from generated files..."
 	else echo "Moving files..."

@@ -20,14 +20,16 @@ default.player_register_model("character.b3d", {
 	textures = {"character.png", },
 	animations = {
 		-- Standard animations.
-		stand     = { x=  0, y= 79, },
-		lay       = { x=162, y=166, },
-		walk      = { x=168, y=187, },
-		mine      = { x=189, y=198, },
-		walk_mine = { x=200, y=219, },
-		-- Extra animations (not currently used by the game).
-		sit       = { x= 81, y=160, },
+		stand     = {x = 0,   y = 79},
+		lay       = {x = 162, y = 166},
+		walk      = {x = 168, y = 187},
+		mine      = {x = 189, y = 198},
+		walk_mine = {x = 200, y = 219},
+		sit       = {x = 81,  y = 160},
 	},
+	collisionbox = {-0.3, 0.0, -0.3, 0.3, 1.7, 0.3},
+	stepheight = 0.6,
+	eye_height = 1.47,
 })
 
 -- Player stats and animations
@@ -58,13 +60,19 @@ function default.player_set_model(player, model_name)
 			mesh = model_name,
 			textures = player_textures[name] or model.textures,
 			visual = "mesh",
-			visual_size = model.visual_size or {x=1, y=1},
+			visual_size = model.visual_size or {x = 1, y = 1},
+			collisionbox = model.collisionbox or {-0.3, 0.0, -0.3, 0.3, 1.7, 0.3},
+			stepheight = model.stepheight or 0.6,
+			eye_height = model.eye_height or 1.47,
 		})
 		default.player_set_animation(player, "stand")
 	else
 		player:set_properties({
-			textures = { "player.png", "player_back.png", },
+			textures = {"player.png", "player_back.png"},
 			visual = "upright_sprite",
+			collisionbox = {-0.3, 0.0, -0.3, 0.3, 1.75, 0.3},
+			stepheight = 0.6,
+			eye_height = 1.625,
 		})
 	end
 	player_model[name] = model_name
@@ -72,8 +80,10 @@ end
 
 function default.player_set_textures(player, textures)
 	local name = player:get_player_name()
-	player_textures[name] = textures
-	player:set_properties({textures = textures,})
+	local model = models[player_model[name]]
+	local model_textures = model and model.textures or nil
+	player_textures[name] = textures or model_textures
+	player:set_properties({textures = textures or model_textures,})
 end
 
 function default.player_set_animation(player, anim_name, speed)

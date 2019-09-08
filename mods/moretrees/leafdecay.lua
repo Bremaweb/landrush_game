@@ -28,7 +28,7 @@ if moretrees.enable_leafdecay then
 					if minetest.find_node_near(pos, moretrees.leafdecay_radius, "ignore") then return end
 					process_drops(pos, node.name)
 					minetest.remove_node(pos)
-					nodeupdate(pos)
+					minetest.check_for_falling(pos)
 				end
 			})
 		end
@@ -43,7 +43,7 @@ if moretrees.enable_leafdecay then
 			if minetest.find_node_near(pos, moretrees.leafdecay_radius, "ignore") then return end
 			process_drops(pos, node.name)
 			minetest.remove_node(pos)
-			nodeupdate(pos)
+			minetest.check_for_falling(pos)
 		end
 	})
 
@@ -56,7 +56,7 @@ if moretrees.enable_leafdecay then
 			if minetest.find_node_near(pos, moretrees.leafdecay_radius, "ignore") then return end
 				process_drops(pos, node.name)
 				minetest.remove_node(pos)
-				nodeupdate(pos)
+				minetest.check_for_falling(pos)
 		end
 	})
 
@@ -69,7 +69,7 @@ if moretrees.enable_leafdecay then
 			if minetest.find_node_near(pos, moretrees.palm_leafdecay_radius, "ignore") then return end
 				process_drops(pos, node.name)
 				minetest.remove_node(pos)
-				nodeupdate(pos)
+				minetest.check_for_falling(pos)
 		end
 	})
 end
@@ -85,7 +85,7 @@ if moretrees.enable_default_leafdecay then
 			if minetest.find_node_near(pos, moretrees.default_leafdecay_radius, "ignore") then return end
 			process_drops(pos, node.name)
 			minetest.remove_node(pos)
-			nodeupdate(pos)
+			minetest.check_for_falling(pos)
 		end
 	})	
 end
@@ -101,7 +101,7 @@ if moretrees.enable_default_jungle_leafdecay then
 			if minetest.find_node_near(pos, moretrees.default_jungle_leafdecay_radius, "ignore") then return end
 			process_drops(pos, node.name)
 			minetest.remove_node(pos)
-			nodeupdate(pos)
+			minetest.check_for_falling(pos)
 		end
 	})	
 end
